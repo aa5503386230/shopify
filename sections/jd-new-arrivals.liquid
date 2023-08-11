@@ -1,0 +1,200 @@
+<style>
+      @media screen and (max-width: 750px) {
+
+  }
+  @media screen and (min-width: 750px) {
+    .newArrivals_box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    }
+    .newArrivals_middle {
+        display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
+    }
+    .newArrivals_left {
+    overflow: hidden;
+    width: 100%;
+    }
+    .newArrivals_left a {
+        width: 100%;
+        display: inline-block;
+    
+    }
+    .newArrivals_left a img {
+        width: 100%;
+    }
+    .arrivalsList_img {
+        width: 100%;
+        overflow: hidden;
+    }
+     .arrivalsList_img a {
+        display: inline-block;
+        width: 100%;
+    }
+     .arrivalsList_img a img {
+        width: 100%;
+     }
+    .newArrivals_right {
+        background-color: {{ section.settings.background }};
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0 75px;
+        border-radius: 6px 0 0 6px;
+    }
+    .rightImg_botton a {
+        background-color: {{ section.settings.botton }};
+          color: {{ section.settings.bottonText }};
+          display: inline-block;
+        padding: 10px 15px;
+        font-size: 16px;
+        font-weight: 300;
+        width: 100%;
+    }
+   
+    .rightImg_title {
+        color: {{ section.settings.rightText_color }};
+        font-size: 42px;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    .rightImg_text {
+        color: {{ section.settings.rightText_color }};
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 1.5;
+        margin: 30px 0;
+    }
+  }
+</style>
+<div class="newArrivals margin-top">
+    <div class="newArrivals_box">
+        <div class="newArrivals_left">
+         <a class="hovera" href="{% if section.settings.leftImg_link != blank %} {{ section.settings.leftImg_link }} {% else %} javascript:; {% endif %}">
+            <img class="lazyload hidden-phone" src="{{section.settings.left_img | img_url: '600x636' }}" alt="section.settings.left_img">
+           <img class="lazyload hidden-tablet-and-up" src="{{section.settings.leftImg_m | img_url: '946x' }}"  alt="section.settings.leftImg_m">
+         </a>
+        </div>
+        <div class="newArrivals_middle">
+            {%- for block in section.blocks -%}
+                <div class="arrivalsList_img">
+                 <a class="hovera" href="{% if block.settings.arrivalsList_link != blank %} {{ block.settings.arrivalsList_link }} {% else %} javascript:; {% endif %}">
+                     <img class="lazyload hidden-phone" src="{{block.settings.arrivalsList_img | img_url: '290x308' }}" alt="block.settings.arrivalsList_img">
+                     <img class="lazyload hidden-tablet-and-up" src="{{block.settings.arrivalsList_img1 | img_url: '946x' }}"  alt="block.settings.arrivalsList_img1">
+                 </a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="newArrivals_right">
+            <div class="rightImg_title">{{ section.settings.rightImg_title }}</div>
+            <div class="rightImg_text">{{ section.settings.rightImg_text }}</div>
+            <div class="rightImg_botton"> <a class="interactionEffect btn-15" href="{% if section.settings.rightImg_link != blank %} {{ section.settings.rightImg_link }} {% else %} javascript:; {% endif %} ">{{ section.settings.rightImg_botton }}</a></div>
+        </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "New Arrivals",
+"settings": [
+{
+"type": "image_picker",
+"id": "left_img",
+"label": "left Image"
+},
+{
+"type": "image_picker",
+"id": "leftImg_m",
+"label": "left Image Mobile"
+},
+{
+"type": "url",
+"id": "leftImg_link",
+"label": "left Image Link"
+},
+{
+"type": "color",
+"id": "background",
+"label": "Background",
+"default": "rgba(0,0,0,0)"
+},
+{
+"type": "color",
+"id": "rightText_color",
+"label": "right image text",
+"default": "rgba(0,0,0,0)"
+},
+{
+"type": "image_picker",
+"id": "right_img",
+"label": "right Image"
+},
+{
+"type": "image_picker",
+"id": "rightImg_m",
+"label": "right Image Mobile"
+},
+
+{
+"type": "text",
+"id": "rightImg_title",
+"label": "right Image Title"
+},
+{
+"type": "richtext",
+"id": "rightImg_text",
+"label": "right Image text"
+},
+{
+"type": "text",
+"id": "rightImg_botton",
+"label": "botton text"
+},
+{
+"type": "url",
+"id": "rightImg_link",
+"label": "right botton link"
+},
+{
+"type": "color",
+"id": "botton",
+"label": "botton",
+"default": "rgba(0,0,0,0)"
+},
+{
+"type": "color",
+"id": "bottonText",
+"label": "Botton Text",
+"default": "rgba(0,0,0,0)"
+}
+],
+"blocks" : [
+{
+"type": "arrivalsList",
+"name": "arrivals_list",
+"settings":[
+{
+"type": "image_picker",
+"id": "arrivalsList_img",
+"label": "Image"
+},
+{
+"type": "image_picker",
+"id": "arrivalsList_img1",
+"label": "Mobile Image"
+},
+{
+"type": "url",
+"id": "arrivalsList_link",
+"label": "link"
+}
+]
+}
+],
+"presets": [{
+"name": "New Arrivals"
+}]
+}
+{% endschema %}

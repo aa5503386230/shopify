@@ -1,0 +1,94 @@
+<style>
+ @media only screen and (max-width:750px) {
+   .pageBanner {
+      width: 100%;
+      position: relative;
+   }
+   .pageBanner img {
+    width: 100%;
+   }
+   .pageBanner_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+   
+   }
+   .pageBanner_title h1 {
+    font-size: 40px;
+    font-family: 'Kapra';
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.5;
+    letter-spacing: 5px;
+     text-transform: uppercase;
+   }
+ }
+ @media only screen and (min-width:750px) {
+   .pageBanner {
+      width: 100%;
+      position: relative;
+   }
+   .pageBanner img {
+    width: 100%;
+   }
+   .pageBanner_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  
+   }
+     .pageBanner_title h1 {
+     font-size: 48px;
+    font-family: 'Kapra';
+    font-weight: 400;
+    color: #FFFFFF;
+    line-height: 1.5;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    
+   }
+ }
+</style>
+<div class="pageBanner">
+      <img class="lazyload hidden-phone" src="{{section.settings.img | img_url: '1920x' }}" alt="{{section.settings.img.alt}}">
+     <img class="lazyload hidden-tablet-and-up" src="{{section.settings.m_img | img_url: '750x' }}"  alt="{{section.settings.m_img.alt}}">
+  <div class="container pageBanner_title">
+    {% if section.settings.title != blank %}
+       <h1> {{section.settings.title}}</h1>
+    {% else %}
+       <h1> {{page.title}}</h1>
+    {% endif %}
+   
+  </div>
+</div>
+{% schema %}
+{
+"name": "Page Banner",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Title"
+},
+{
+"type": "image_picker",
+"id": "img",
+"label": "Image"
+},
+{
+"type": "image_picker",
+"id": "m_img",
+"label": "Mobile Image"
+}
+],
+"blocks" : [
+],
+"presets": [{
+"name": "Page Banner"
+}]
+}
+{% endschema %}

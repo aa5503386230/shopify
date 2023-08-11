@@ -1,0 +1,93 @@
+<style>
+@media screen and (max-width: 750px) {
+.celebrityBox {
+   border: 1px solid #151515;
+    width: 100%;
+    position: relative;
+    padding: 50px 25px 95px 25px;
+  }
+  .celebrityImg {
+   position: absolute;
+    bottom: -60px;
+    left: 30%;
+    width: 125px;
+    border-radius: 50%;
+  }
+  .celebrityImg img {
+     width: 100%;
+     border-radius: 50%;
+  }
+  .celebrityText {
+    text-align: center;
+    font-weight: 300;
+    color: #151515;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .celebrityDescription {
+    margin-bottom: 95px;
+  }
+}
+@media screen and (min-width: 750px) {
+  .celebrityBox {
+    border: 1px solid #151515;
+    width: 100%;
+    position: relative;
+    padding: 80px 260px 118px 260px;
+  }
+  .celebrityImg {
+   position: absolute;
+    bottom: -90px;
+    left: 44%;
+    width: 175px;
+    border-radius: 50%;
+  }
+  .celebrityImg img {
+     width: 100%;
+     border-radius: 50%;
+  }
+  .celebrityText {
+    text-align: center;
+    font-weight: 300;
+    color: #151515;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+  .celebrityDescription {
+    margin-bottom: 200px;
+  }
+}
+</style>
+<div class="celebrityDescription margin-top">
+    <div class="celebrityConter container">
+      <div class="celebrityBox">
+         <div class="celebrityText">
+       {{ section.settings.description }}
+      </div>
+       <div class="celebrityImg">
+         <img class="lazyload" src="{{ section.settings.img | img_url: '380x' }}" alt="{{section.settings.img.alt}}">
+       </div>
+      </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "Celebrity Description",
+"settings": [
+{
+"type": "richtext",
+"id": "description",
+"label": "text"
+},
+{
+"type": "image_picker",
+"id": "img",
+"label": "image"
+}
+],
+"blocks" : [],
+"presets": [{
+"name": "Celebrity Description"
+}]
+}
+{% endschema %}

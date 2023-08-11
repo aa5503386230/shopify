@@ -1,0 +1,110 @@
+{
+  "sections": {
+    "collection-banner": {
+      "type": "collection-banner",
+      "disabled": true,
+      "settings": {
+        "show_collection_image": true,
+        "show_collection_description": true,
+        "section_height": "small",
+        "text_width": "medium",
+        "image_text_color": "#ffffff",
+        "image_overlay_color": "#000000",
+        "image_overlay_opacity": 30,
+        "quick_links": ""
+      }
+    },
+    "072fedb7-4ad3-4bbb-a57e-787ed3d46694": {
+      "type": "jd-classification-diagram",
+      "blocks": {
+        "bf23b778-3e12-4756-9aac-f31570ff6577": {
+          "type": "collectionSort",
+          "settings": {
+            "proportion": false,
+            "proportion1": false,
+            "collectionSort_title": "NECKLACES",
+            "collectionSort_img": "shopify:\/\/shop_images\/01_c2900368-6281-4abe-9a6e-d52c7010a8e1.png",
+            "collectionSort_link": "shopify:\/\/collections\/necklaces",
+            "collectionSort_botton": "VIEW PRODUCTS"
+          }
+        },
+        "1551b6ee-b453-4d86-8b51-24e7ef0f50d2": {
+          "type": "collectionSort",
+          "settings": {
+            "proportion": false,
+            "proportion1": true,
+            "collectionSort_title": "BEST  SELLERS",
+            "collectionSort_img": "shopify:\/\/shop_images\/03_2e657b44-4d96-4545-8b70-89851dd1bfcc.png",
+            "collectionSort_link": "shopify:\/\/collections",
+            "collectionSort_botton": "VIEW PRODUCTS"
+          }
+        },
+        "f3880ba9-d7cb-4de9-9e52-f125a155811d": {
+          "type": "collectionSort",
+          "settings": {
+            "proportion": true,
+            "proportion1": false,
+            "collectionSort_title": "EARRINGS",
+            "collectionSort_img": "shopify:\/\/shop_images\/04_49b5355c-a852-448f-8816-f7798e9e7838.png",
+            "collectionSort_link": "shopify:\/\/collections\/earrings",
+            "collectionSort_botton": "VIEW PRODUCTS"
+          }
+        },
+        "20a220cb-3ce6-4fec-bb4c-e0cc0e400088": {
+          "type": "collectionSort",
+          "settings": {
+            "proportion": true,
+            "proportion1": false,
+            "collectionSort_title": "BRACELETS",
+            "collectionSort_img": "shopify:\/\/shop_images\/02_6eac0a03-7bdf-411f-ade9-fc251cacfe0d.png",
+            "collectionSort_link": "shopify:\/\/collections\/bracelets",
+            "collectionSort_botton": "VIEW PRODUCTS"
+          }
+        },
+        "d640725e-6ab0-40c7-9bad-e1772aafd72e": {
+          "type": "collectionSort",
+          "settings": {
+            "proportion": false,
+            "proportion1": false,
+            "collectionSort_title": "RINGS",
+            "collectionSort_img": "shopify:\/\/shop_images\/05.png",
+            "collectionSort_link": "shopify:\/\/collections\/rings",
+            "collectionSort_botton": "VIEW PRODUCTS"
+          }
+        }
+      },
+      "block_order": [
+        "bf23b778-3e12-4756-9aac-f31570ff6577",
+        "1551b6ee-b453-4d86-8b51-24e7ef0f50d2",
+        "f3880ba9-d7cb-4de9-9e52-f125a155811d",
+        "20a220cb-3ce6-4fec-bb4c-e0cc0e400088",
+        "d640725e-6ab0-40c7-9bad-e1772aafd72e"
+      ],
+      "settings": {
+        "img": "shopify:\/\/shop_images\/PC_29570201-d3d5-445b-b574-bcb465abaebb.png",
+        "m_img": "shopify:\/\/shop_images\/50f0a92fb517512a2cb244756967e29a.png"
+      }
+    },
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "show_sort_by": true,
+        "products_per_page": 24,
+        "mobile_products_per_row": "2",
+        "desktop_products_per_row": 4,
+        "show_filters": true,
+        "show_filter_group_name": false,
+        "show_color_swatch": true,
+        "open_first_filter_group": false,
+        "filter_position": "always_visible",
+        "promotion_position": "top",
+        "promotion_height": "small"
+      }
+    }
+  },
+  "order": [
+    "collection-banner",
+    "072fedb7-4ad3-4bbb-a57e-787ed3d46694",
+    "main"
+  ]
+}

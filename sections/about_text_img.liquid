@@ -1,0 +1,164 @@
+<style>
+    @media (max-width:999px){
+        .about_text_img_all{
+            padding:50px 0 76px;
+            background-color: {{section.settings.background}};
+        }
+        .about_text_img_all .head_description{
+            margin-top: 25px;
+            -webkit-box-ordinal-group: 2;
+            -moz-box-ordinal-group: 2;
+            box-ordinal-group: 2;
+        }
+        .about_text_img_all .about_text_img{
+            -webkit-box-orient: vertical;
+            -moz-box-orient: vertical;
+            box-orient: vertical;
+            display: -webkit-box;
+            display: -moz-box;
+            display: box;
+        }
+        
+        .about_text_img_all .header{
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            letter-spacing: 0.3px;
+            font-size: {{section.settings.m_font_size}}px;
+        }
+        .about_text_img_all .description{
+            font-weight: 300;
+            line-height: 1.8;
+            letter-spacing: 0.3px;
+            font-size: {{section.settings.text_m_font_size}}px;
+        }
+    }
+    @media(min-width:1000px){
+        .about_text_img_all{
+            background-color: {{section.settings.background}};
+            padding:100px 0 90px;
+        }
+        .about_text_img_all .head_description{
+            display: flex;
+            margin-bottom: 100px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .about_text_img_all .header{
+            font-weight: 500;
+            line-height: 1;
+            font-size: {{section.settings.font_size}}px;
+          width: 50%;
+        }
+        .about_text_img_all .description{
+            font-weight: 300;
+            line-height: 1.8;
+            font-size: {{section.settings.text_font_size}}px;
+          width: 50%;
+        }
+    }
+</style>
+<div class="about_text_img_all">
+    <div class="container">
+        <div class="about_text_img">
+            <div class="head_description">
+                <div class="header hidden-phone">{{section.settings.header}}</div>
+                <div class="header hidden-tablet-and-up">{{section.settings.m_header}}</div>
+                <div class="description hidden-phone">{{section.settings.description}}</div>
+                <div class="description hidden-tablet-and-up">{{section.settings.m_description}}</div>
+            </div>
+            <img loading="lazy" class="hidden-phone" {% render 'image-attributes' , image: section.settings.img%}>
+            <img loading="lazy" class="hidden-tablet-and-up" {% render 'image-attributes' , image: section.settings.m_img%}>
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "about text img",
+        "class": "about_text_img",
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "header",
+                "label": "pc header"
+            },
+            {
+                "type": "richtext",
+                "id": "m_header",
+                "label": "mobile header"
+            },
+            {
+                "type": "range",
+                "id": "font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "pc font size",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "m_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "mobile font size",
+                "default": 12
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "text"
+            },
+            {
+                "type": "richtext",
+                "id": "m_description",
+                "label": "mobile text"
+            },
+            {
+                "type": "range",
+                "id": "text_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": " pc font size",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "text_m_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "mobile font size",
+                "default": 12
+            },
+            {
+                "type": "color",
+                "id": "background",
+                "label": "background"
+            },
+            {
+                "type": "image_picker",
+                "id": "img",
+                "label": "PC Img"
+            },
+            {
+                "type": "image_picker",
+                "id": "m_img",
+                "label": "mobile Img"
+            }
+        ],
+        "blocks": [],
+        "presets": [
+            {
+                "name": "about text img"
+            }
+        ]
+    }
+{% endschema %}

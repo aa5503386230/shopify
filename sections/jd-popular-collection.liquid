@@ -1,0 +1,275 @@
+<style>
+    .popularConter_listBox:first-of-type {
+    display: block;
+}
+
+.popularConter_listBox {
+    display: none;
+}
+    @media screen and (max-width: 750px) {
+
+  }
+  @media screen and (min-width: 750px) {
+    .popularCollection {
+      margin-top: 80px;
+    }
+     .popularActive::before {
+        opacity: 1 !important;
+    transform: scaleX(1) !important;
+     }
+     .popularTabTitle::before {
+        position: absolute;
+    bottom: -1px;
+    height: 3px;
+    background: #000;
+    left: 50%;
+    margin-left: -50%;
+    width: 100%;
+    content: "";
+    opacity: 0;
+    transition: transform .2s ease-in, -webkit-transform .2s ease-in;
+    transform: scaleX(0);
+     }
+    .popularCollection_tab {
+        display: flex;
+        border-bottom: 2px solid #DCDCDC;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        position: relative;
+    }
+    .popularTabTitle {
+    font-size: 20px;
+    font-weight: 300;
+    color: #151515;
+   padding: 25px 0 10px 0;
+    line-height: 1.5;
+    margin: 0 25px;
+    cursor: pointer;
+    position: relative;
+    }
+    .popularCollection_tab .popularTabTitle:first-child {
+        margin-left: 0;
+    }
+    .popularCollection_tab .popularTabTitle:nth-child(4) {
+        margin-right: 0;
+    }
+    .popularCollection_bottom {
+        margin-top: 5px;
+    }
+    .popularCollection_product {
+        margin-top: 65px;
+    }
+    .popularConter_swiper {
+        overflow: hidden;
+        position: relative;
+        padding-bottom: 45px;
+    }
+    .popularCollection_tab .swiper-button-next::after,.popularCollection_tab .swiper-button-prev::after  {
+           display: none;
+    }
+    .popularCollection_tab .swiper-button-next,.popularCollection_tab .swiper-button-prev {
+        width: 35px;
+        height: 35px;
+        border: 1px solid #151515;
+        border-radius: 50%;
+        z-index: 2;
+    }
+    .popularCollection_tab .swiper-button-next {
+          right: 0;
+    }
+    .popularCollection_tab .swiper-button-prev {
+      transform: rotate(180deg);
+    right: 60px;
+    left: auto;
+    }
+    .popularConter_list .product-item .product-item__image-wrapper {
+        margin-bottom: 0;
+        padding-bottom: 119.048%;
+        background: #FAF7F2;
+    }
+    .popularConter_list .product-item .product-item__image-wrapper .product-item__aspect-ratio {
+      position: absolute;
+      inset: 0px;
+    }
+    .popularConter_list .product-item .product-item__image-wrapper .product-item__aspect-ratio .product-item__primary-image {
+      position: absolute;
+    inset: 0px;
+    padding: 0px;
+    border: none;
+    margin: auto;
+
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    }
+     .popularConter_list .product-item .product-item__info {
+        margin-top: 10px;
+     }
+      .popularConter_list .product-item .product-item__info .product-item-meta .product-item-meta__title {
+        font-size: 18px;
+        font-weight: 300;
+        color: #151515;
+        text-align: left;
+        line-height: 1.5;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .popularConter_list .product-item .product-item__info .product-item-meta .product-item-meta__price-list-container {
+        display: flex;
+    justify-content: flex-start;
+      }
+       .popularConter_list .product-item .product-item__info .product-item-meta .product-item-meta__price-list-container span {
+         font-size: 18px;
+        font-weight: 300;
+        color: #151515;
+        line-height: 1.5;
+       }
+ 
+       .popularConter_swiper .swiper-scrollbar {
+        left: 0 !important;
+        width: 100% !important;
+        z-index: 2;
+        background: rgb(0 0 0 / 10%);
+       }
+       .popularConter_swiper .swiper-scrollbar .swiper-scrollbar-drag {
+        background: #000000;
+       }
+  }
+
+
+</style>
+<div class="popularCollection margin-top">
+    <div class="container popularCollection_box">
+        <div class="popularCollection_title ithfaen_title">{{ section.settings.PopularCollection_title }}</div>
+        <div class="popularCollection_bottom">
+          <div class="popularCollection_tab">
+            {% assign popularTab = section.blocks | where: 'type', 'popularTab' %}
+               {% for block in popularTab %}
+                <div class="popularTabTitle">
+                     {{ block.settings.popularTabTitle }}
+                </div>
+            {% endfor %}
+            <div class="swiper-button-next"><svg t="1675840283830" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9321" width="20" height="20"><path d="M769.216 511.936c0-3.712-1.152-7.232-1.856-10.88-0.64-2.368-0.64-4.8-1.408-7.04a50.56 50.56 0 0 0-11.136-17.344l-417.28-417.28a48.96 48.96 0 0 0-68.992-0.96 48.832 48.832 0 0 0 1.024 68.864L654.208 512l-384.64 384.768a48.768 48.768 0 0 0-1.024 68.8 48.768 48.768 0 0 0 68.864-0.96l417.28-417.344a51.2 51.2 0 0 0 11.136-17.344c0.896-2.304 0.896-4.736 1.472-7.04 0.768-3.648 1.92-7.232 1.92-10.944z" fill="#151515" p-id="9322"></path></svg></div>
+            <div class="swiper-button-prev"><svg t="1675840283830" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9321" width="20" height="20"><path d="M769.216 511.936c0-3.712-1.152-7.232-1.856-10.88-0.64-2.368-0.64-4.8-1.408-7.04a50.56 50.56 0 0 0-11.136-17.344l-417.28-417.28a48.96 48.96 0 0 0-68.992-0.96 48.832 48.832 0 0 0 1.024 68.864L654.208 512l-384.64 384.768a48.768 48.768 0 0 0-1.024 68.8 48.768 48.768 0 0 0 68.864-0.96l417.28-417.344a51.2 51.2 0 0 0 11.136-17.344c0.896-2.304 0.896-4.736 1.472-7.04 0.768-3.648 1.92-7.232 1.92-10.944z" fill="#151515" p-id="9322"></path></svg></div>
+          </div>
+          <div class="popularCollection_product">
+             {% assign popularConter = section.blocks | where: 'type', 'popularConter' %}
+              {% for block in popularConter %}
+                 <div class="popularConter_listBox" >
+                    {% assign productsNum = block.settings.popularConter_lsit.products.size %}
+                     <!-- Swiper -->
+                    <div class="swiper popularConter_swiper popularConter_{{ block.settings.distinguish }}" data-id="popularConter_{{ block.settings.distinguish }}" data-num="{{ productsNum }}">
+                    <div class="swiper-wrapper popularConter_wrapper">
+                       {% for item in block.settings.popularConter_lsit.products %}
+                        <div class="popularConter_list swiper-slide">
+                             {%- render 'product-item', product: item, sizes_attribute: sizes_attribute -%}
+                        </div>
+                     {% endfor %}
+                    </div>
+                    <div class="swiper-scrollbar"></div>
+                    </div>
+                     
+                 </div>
+              {% endfor %}
+          </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+      var className = $('.popularConter_swiper').attr('data-id');
+      $('.popularTabTitle:first').addClass("popularActive");
+       var swiper = new Swiper('.'+ className, {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                observer:true,
+                observeParents:true,
+                scrollbar: {
+                  el: ".swiper-scrollbar",
+                },
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+              });
+      // pc端tab切换
+        $('.popularTabTitle').click(function () {
+           var className1 = $(".popularCollection_product .popularConter_listBox").eq($(this).index()).children('.popularConter_swiper').attr('data-id');
+           var swiperNum = $(".popularCollection_product .popularConter_listBox").eq($(this).index()).children('.popularConter_swiper').attr('data-num');
+            $(this).addClass("popularActive").siblings().removeClass('popularActive');
+            $(".popularCollection_product .popularConter_listBox").eq($(this).index()).show().siblings().hide();
+            if(swiperNum < 4 ){
+              $(this).siblings('.swiper-button-next').hide()
+              $(this).siblings('.swiper-button-prev').hide()
+            }else {
+              $(this).siblings('.swiper-button-next').show()
+              $(this).siblings('.swiper-button-prev').show()
+            }
+              var swiper = new Swiper('.'+ className1, {
+                slidesPerView: 4,
+                spaceBetween: 20,
+                observer:true,
+                observeParents:true,
+                scrollbar: {
+                  el: ".swiper-scrollbar",
+                },
+                navigation: {
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                },
+              });
+        });
+    })
+     
+</script>
+{% schema %}
+{
+"name": "Popular Collection",
+"settings": [
+{
+"type": "text",
+"id": "PopularCollection_title",
+"label": "Title"
+}
+],
+"blocks" : [
+{
+"type": "popularTab",
+"name": "popular_tab",
+"settings": [
+{
+"type": "text",
+"id": "popularTabTitle",
+"label": "title"
+}
+]
+},
+{
+"type": "popularConter",
+"name": "popular_conter",
+"settings": [
+{
+"type": "text",
+"id": "distinguish",
+"label": "distinguish type"
+},
+{
+"type": "collection",
+"id": "popularConter_lsit",
+"label": "Collection"
+}
+]
+}
+],
+"presets": [{
+"name": "Popular Collection"
+}]
+}
+{% endschema %}

@@ -1,0 +1,387 @@
+<style>
+  @media only screen and (max-width:750px) {
+    .warrantyIcon_conter {
+      width: 100%;
+      background: {{ section.settings.background }};
+    }
+    .warrantyIcon_slide {
+      width: 100% !important;
+    }
+     .warrantyIcon_img img {
+      width: 100%;
+    }
+    .warrantyIcon_slide:nth-child(2) .highlights-banner__icon {
+      width: 22px;
+    }
+    .warrantyIcon_slide:nth-child(3) .highlights-banner__icon {
+      width: 30px;
+      height: 30px;
+    }
+    .warrantyIcon_slide:nth-child(3) .highlights-banner__icon svg .cls-1 {
+      opacity: 1;
+    }
+    .highlights-banner__icon {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .highlights-banner__icon svg {
+      width: 100%;
+    }
+    .warrantyIcon_listConter {
+       display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 25px;
+    padding: 35px;
+    }
+
+    .warrantyIcon_list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .warrantyIcon-conter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      margin-top: 10px;
+    }
+
+    .warrantyIcon_title {
+      font-size: 16px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .warrantyIcon_txt {
+      font-size: 12px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.5;
+      text-align: center;
+    }
+  }
+
+  @media only screen and (min-width:750px) {
+    .warrantyIcon_list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .warrantyIcon_box1 {
+      width: 100%;
+      background: {{ section.settings.background }};
+    }
+    .warrantyIcon_listConter {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      padding: 30px 0;
+      max-width: 1100px;
+      margin: auto;
+
+    }
+
+    .warrantyIcon-conter {
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .warrantyIcon_title {
+      font-size: 18px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .warrantyIcon_txt {
+      font-size: 16px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.4;
+      text-align: center;
+    }
+    .warrantyIcon_img {
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .warrantyIcon_img img {
+      width: 100%;
+    }
+    .warrantyIcon_list:nth-child(2) .highlights-banner__icon {
+      width: 22px;
+    }
+    .warrantyIcon_list:nth-child(3) .highlights-banner__icon {
+      width: 30px;
+      height: 30px;
+    }
+    .warrantyIcon_list:nth-child(3) .highlights-banner__icon svg .cls-1 {
+      opacity: 1;
+    }
+    .highlights-banner__icon {
+      width: 25px;
+      height: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .highlights-banner__icon svg {
+      width: 100%;
+    }
+
+  }
+</style>
+<div class="warrantyIcon_conter margin-top">
+  <div class="container warrantyIcon_box">
+    <div class="hidden-phone warrantyIcon_box1">
+      <div class="warrantyIcon_listConter">
+        {% for block in section.blocks %}
+          <div class="warrantyIcon_list">
+            {% if block.settings.icon != 'none' or block.settings.warranty_iconImg != blank %}
+              <div class="highlights-banner__icon">
+                {% if block.settings.warranty_iconImg != blank %}
+                  <div class="warrantyIcon_img">
+                    <img src="{{block.settings.warranty_iconImg| img_url: '200x200'}}" alt="">
+                  </div>
+                {% elsif block.settings.warranty_iconSvg != blank %}
+                  {{ block.settings.warranty_iconSvg }}
+                {% else %}
+                  {%- render 'icon' with block.settings.icon -%}
+                {% endif %}
+              </div>
+            {% endif %}
+            {% if block.settings.warranty_iconTitle != blank or block.settings.warranty_iconTxt != blank %}
+              <div class="warrantyIcon-conter">
+                {% if block.settings.warranty_iconTitle != blank %}
+                  <div class="warrantyIcon_title">{{ block.settings.warranty_iconTitle }}</div>
+                {% endif %}
+
+                {% if block.settings.warranty_iconTxt != blank %}
+                  <div class="warrantyIcon_txt">{{ block.settings.warranty_iconTxt }}</div>
+                {% endif %}
+              </div>
+            {% endif %}
+
+
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="hidden-tablet-and-up">
+      <div class="warrantyIcon_listConter ">
+        {% for block in section.blocks %}
+          <div class="warrantyIcon_slide">
+            <div class="warrantyIcon_list">
+              {% if block.settings.icon != 'none' or block.settings.warranty_iconImg != blank %}
+                <div class="highlights-banner__icon">
+                  {% if block.settings.warranty_iconImg != blank %}
+                    <div class="warrantyIcon_img">
+                      <img src="{{block.settings.warranty_iconImg| img_url: '200x200'}}" alt="">
+                    </div>
+                  {% elsif block.settings.warranty_iconSvg != blank %}
+                    {{ block.settings.warranty_iconSvg }}
+                  {% else %}
+                    {%- render 'icon' with block.settings.icon -%}
+                  {% endif %}
+                </div>
+              {% endif %}
+              <div class="warrantyIcon-conter">
+                <div class="warrantyIcon_title">{{ block.settings.warranty_iconTitle }}</div>
+                <div class="warrantyIcon_txt">{{ block.settings.warranty_iconTxt }}</div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+  {
+    "name": "Warranty Icon",
+    "settings": [
+      {
+        "type": "color",
+        "id": "background",
+        "label": "background",
+        "default": "rgba(0,0,0,0)"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "WarrantyIcon",
+        "name": "warranty_iconList",
+        "settings": [
+          {
+            "type": "text",
+            "id": "warranty_iconTitle",
+            "label": "Title"
+          },
+          {
+            "type": "richtext",
+            "id": "warranty_iconTxt",
+            "label": "Text"
+          },
+          {
+            "type": "image_picker",
+            "id": "warranty_iconImg",
+            "label": "Image"
+          },
+          {
+            "type": "textarea",
+            "id": "warranty_iconSvg",
+            "label": "icon svg"
+          }, {
+            "type": "select",
+            "id": "icon",
+            "label": "Icon",
+            "options": [
+              {
+                "value": "picto-coupon",
+                "label": "Coupon",
+                "group": "Shop"
+              },
+              {
+                "value": "picto-gift",
+                "label": "Gift",
+                "group": "Shop"
+              },
+              {
+                "value": "picto-taxes",
+                "label": "Taxes",
+                "group": "Shop"
+              },
+              {
+                "value": "picto-warranty",
+                "label": "Warranty",
+                "group": "Shop"
+              }, {
+                "value": "picto-like",
+                "label": "Like",
+                "group": "Shop"
+              }, {
+                "value": "picto-store",
+                "label": "Store",
+                "group": "Shop"
+              }, {
+                "value": "picto-store-pickup",
+                "label": "Store pickup",
+                "group": "Shop"
+              }, {
+                "value": "picto-love",
+                "label": "Love",
+                "group": "Shop"
+              }, {
+                "value": "picto-donation",
+                "label": "Donation",
+                "group": "Shop"
+              }, {
+                "value": "picto-box",
+                "label": "Box",
+                "group": "Shipping"
+              }, {
+                "value": "picto-address",
+                "label": "Address",
+                "group": "Shipping"
+              }, {
+                "value": "picto-address-pin",
+                "label": "Address pin",
+                "group": "Shipping"
+              }, {
+                "value": "picto-fast-delivery",
+                "label": "Fast delivery",
+                "group": "Shipping"
+              }, {
+                "value": "picto-delivery-truck",
+                "label": "Delivery truck",
+                "group": "Shipping"
+              }, {
+                "value": "picto-return-box",
+                "label": "Returns",
+                "group": "Shipping"
+              }, {
+                "value": "picto-worldwide",
+                "label": "World",
+                "group": "Shipping"
+              }, {
+                "value": "picto-plane",
+                "label": "Plane",
+                "group": "Shipping"
+              }, {
+                "value": "picto-credit-card",
+                "label": "Credit card",
+                "group": "Payment & Security"
+              }, {
+                "value": "picto-lock",
+                "label": "Lock",
+                "group": "Payment & Security"
+              }, {
+                "value": "picto-shield",
+                "label": "Shield",
+                "group": "Payment & Security"
+              }, {
+                "value": "picto-secure-payment",
+                "label": "Secure payment",
+                "group": "Payment & Security"
+              }, {
+                "value": "picto-mobile",
+                "label": "Mobile",
+                "group": "Communication"
+              }, {
+                "value": "picto-phone",
+                "label": "Phone",
+                "group": "Communication"
+              }, {
+                "value": "picto-chat",
+                "label": "Chat",
+                "group": "Communication"
+              }, {
+                "value": "picto-send",
+                "label": "Send",
+                "group": "Communication"
+              }, {
+                "value": "picto-email",
+                "label": "Email",
+                "group": "Communication"
+              }, {
+                "value": "picto-customer-support",
+                "label": "Customer support",
+                "group": "Communication"
+              }, {
+                "value": "picto-operator",
+                "label": "Support operator",
+                "group": "Communication"
+              }, {
+                "value": "picto-virus",
+                "label": "Virus",
+                "group": "Health"
+              }, {
+                "value": "picto-mask",
+                "label": "Mask",
+                "group": "Health"
+              }
+            ],
+            "default": "picto-customer-support"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Warranty Icon",
+        "category": "Image"
+      }
+    ]
+  }
+{% endschema %}

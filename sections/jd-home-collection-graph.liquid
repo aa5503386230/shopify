@@ -1,0 +1,253 @@
+<style>
+  @media screen and (max-width: 750px) {
+        .graphList {
+             display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+             overflow: hidden;
+        }
+        .graphList .graphList_box:nth-child(3) {
+            grid-column: span 2 / auto;
+        }
+        .graphList_box {
+            overflow: hidden;
+            display: flex;
+        }
+        .graphList_box a {
+            display: flex;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+           
+        }
+         .graphList_box a img {
+            width: 100%;
+         }
+         .graphList_box a .graphList_button {
+          position: absolute;
+            bottom: 10px;
+            left: 5px;
+            width: 100px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 300;
+            color: #151515;
+            line-height: 1.5;
+            padding: 3px;
+            background: #fff;
+         }
+     }
+      @media screen and (min-width: 750px) {
+        .graphList {
+             display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 10px;
+             overflow: hidden;
+        }
+        .graphList_box {
+            overflow: hidden;
+            display: flex;
+        }
+        .graphList_box a {
+           display: flex;
+          width: 100%;
+          position: relative;
+          overflow: hidden;
+          align-items: stretch;
+          justify-content: center;
+           
+        }
+         .graphList_box a img {
+            width: 100%;
+         }
+         .graphList_box a .graphList_button {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            width: 110px;
+            text-align: center;
+             font-size: 14px;
+            font-weight: 300;
+            color: #151515;
+            line-height: 1.5;
+            padding: 5px;
+         }
+       .graphList1 {
+            grid-template-columns: 53% 46.3%;
+            display: grid;
+            grid-column-gap: 10px;
+            margin-top: 10px;
+        }
+      }
+</style>
+<div class="graphConter margin-top">
+    <div class="graphConter_box container">
+     <div class="hidden-phone">
+         <div class="graphList">
+         {%- for block in section.blocks limit: 3 -%}
+         <div class="graphList_box">
+            <a class="hovera" href="{{ block.settings.graphList_link }}">
+            {% if block.settings.img != blank %}
+                 <img class="lazyload" src="{{ block.settings.img | img_url: '527x' }}" alt="{{block.settings.img.alt}}">
+            {% endif %} 
+            <div class="graphList_button interactionEffect1 btn-16">
+                {{ block.settings.graphList_button }}
+            </div>
+         </a>
+         </div>
+     {% endfor %}
+     </div>
+     <div class="graphList1">
+        <div class="graphList_box">
+            <a class="hovera" href="{{ section.settings.graphList_link }}">
+            {% if section.settings.img != blank %}
+                <img class="lazyload" src="{{ section.settings.img | img_url: '892x' }}" alt="{{section.settings.img.alt}}">
+            {% endif %}
+            <div class="graphList_button interactionEffect1 btn-16">
+                {{ section.settings.graphList_button }}
+            </div>
+         </a>
+        </div>
+        <div class="graphList_box">
+         <a class="hovera" href="{{ section.settings.graphList_link1 }}">
+            {% if section.settings.img1 != blank %}
+                 <img class="lazyload" src="{{ section.settings.img1 | img_url: '699x' }}" alt="{{section.settings.img1.alt}}">
+            {% endif %}
+            <div class="graphList_button interactionEffect1 btn-16">
+                {{ section.settings.graphList_button1 }}
+            </div>
+         </a>
+        </div>
+        
+           
+     </div>
+     </div>
+     <div class="hidden-tablet-and-up">
+      <div class="graphList">
+        {%- for block in section.blocks  limit : 2 -%}
+           <div class="graphList_box">
+            <a href="{{ block.settings.graphList_link }}">
+                {% if block.settings.img_m != blank %}
+                 <img class="lazyload hidden-tablet-and-up" src="{{ block.settings.img_m | img_url: '335x' }}"  alt="{{ block.settings.img_m.alt}}">
+                {% endif %}
+                 <div class="graphList_button interactionEffect1 btn-16">
+                {{ block.settings.graphList_button }}
+               </div>
+            </a>
+           </div>
+        {% endfor %}
+         <div class="graphList_box">
+            <a href="{{ section.settings.graph_link }}">
+                {% if section.settings.img_m1 != blank %}
+                 <img class="lazyload hidden-tablet-and-up" src="{{ section.settings.img_m1 | img_url: '689x' }}"  alt="{{ section.settings.img_m1.alt}}">
+                {% endif %}
+                 <div class="graphList_button interactionEffect1 btn-16">
+                {{ section.settings.graph_button }}
+               </div>
+            </a>
+           </div>
+         {%- for block in section.blocks  offset : 3 -%}
+           <div class="graphList_box">
+            <a href="{{ block.settings.graphList_link }}">
+                {% if block.settings.img_m != blank %}
+                 <img class="lazyload hidden-tablet-and-up" src="{{ block.settings.img_m | img_url: '335x' }}"  alt="{{ block.settings.img_m.alt}}">
+                {% endif %}
+                 <div class="graphList_button interactionEffect1 btn-16">
+                {{ block.settings.graphList_button }}
+               </div>
+            </a>
+           </div>
+        {% endfor %}
+      </div>
+     </div>
+    </div>
+</div>
+{% schema %}
+{
+"name": "Collection Graph",
+"settings": [
+    {
+"type": "image_picker",
+"id": "img",
+"label": "Image",
+ "info": "892 x 500px"
+},
+{
+"type": "text",
+"id": "graphList_button",
+"label": "big picture button"
+},
+{
+"type": "url",
+"id": "graphList_link",
+"label": " big picture link"
+},
+{
+"type": "image_picker",
+"id": "img1",
+"label": "Image",
+ "info": "699 x 500px"
+},
+{
+"type": "text",
+"id": "graphList_button1",
+"label": "big picture button"
+},
+{
+"type": "url",
+"id": "graphList_link1",
+"label": "big picture link"
+},
+  {
+"type": "image_picker",
+"id": "img_m1",
+"label": "Mobile Image",
+ "info": "689 x 396px"
+},
+  {
+"type": "text",
+"id": "graph_button",
+"label": "Mobile button"
+},
+{
+"type": "url",
+"id": "graph_link",
+"label": "Mobile link"
+}
+],
+"blocks" : [
+{
+"type": "graphList",
+"name": "graph list",
+"settings":[
+{
+"type": "image_picker",
+"id": "img",
+"label": "Image",
+ "info": "527 x 500px"
+},
+{
+"type": "image_picker",
+"id": "img_m",
+"label": "Mobile Image",
+ "info": "335 x 396px"
+},
+{
+"type": "text",
+"id": "graphList_button",
+"label": "button"
+},
+{
+"type": "url",
+"id": "graphList_link",
+"label": "link"
+}
+
+]
+}
+],
+"presets": [{
+"name": "Collection Graph"
+}]
+}
+{% endschema %}

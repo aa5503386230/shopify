@@ -1,0 +1,249 @@
+<style>
+  .eventsProduct_lsit .product-item .product-item__info .productDescription_materials {
+  display: none;
+ } 
+  @media only screen and (max-width:750px) {
+  .eventsConter_bottom {
+    margin-top: 50px;
+  }
+  .eventsConter_top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .events_text {
+    font-size: 14px;
+    color: #151515;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-top: 5px;
+  }
+  .events_button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 18px;
+  }
+  .events_button1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .eventsProduct_lsit .product-item .product-item__image-wrapper {
+        margin-bottom: 0;
+    }
+    .eventsProduct_lsit .product-item .product-item__info {
+        margin-top: 20px;
+    }
+    .eventsProduct_lsit .product-item .product-item__info .product-item-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+     .eventsProduct_lsit .product-item .product-item__info .product-item-meta .product-item-meta__title {
+        font-size: 14px;
+        font-weight: 300;
+        color: #151515;
+          overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+     }
+    .eventsProduct_lsit .product-item .product-item__info .product-item-meta .product-item-meta__price-list-container {
+        display: none;
+    }
+    .eventsConter_box {
+     overflow: hidden;
+    }
+    .eventsSwiper {
+    
+      position: relative;
+    }
+ }
+ @media only screen and (min-width:750px) {
+  .eventsConter_bottom {
+    margin-top: 70px;
+  }
+  .eventsConter_top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .events_text {
+    font-size: 18px;
+    color: #151515;
+    line-height: 1.5;
+    font-weight: 300;
+    margin-top: 10px;
+  }
+  .events_button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+  }
+  .events_button1 {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 55px;
+  }
+    .eventsProduct_lsit .product-item .product-item__image-wrapper {
+        margin-bottom: 0;
+/*         padding-bottom: 119.048%;
+        background: #FAF7F2; */
+    }
+/*     .eventsProduct_lsit .product-item .product-item__image-wrapper .product-item__aspect-ratio {
+      position: absolute;
+      inset: 0px;
+    }
+    .eventsProduct_lsit .product-item .product-item__image-wrapper .product-item__aspect-ratio .product-item__primary-image {
+      position: absolute;
+    inset: 0px;
+    padding: 0px;
+    border: none;
+    margin: auto;
+
+    width: 0px;
+    height: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    } */
+    .eventsProduct_lsit .product-item .product-item__info {
+        margin-top: 25px;
+    }
+    .eventsProduct_lsit .product-item .product-item__info .product-item-meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+     .eventsProduct_lsit .product-item .product-item__info .product-item-meta .product-item-meta__title {
+        font-size: 18px;
+        font-weight: 300;
+        color: #151515;
+        text-align: left;
+        overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+     }
+    .eventsProduct_lsit .product-item .product-item__info .product-item-meta .product-item-meta__price-list-container {
+        display: none;
+    }
+    .eventsSwiper {
+      overflow: hidden;
+      position: relative;
+    }
+ }
+</style>
+<div class="eventsConter margin-top">
+    <div class="eventsConter_box container">
+        <div class="eventsConter_top">
+            <div class="events_title ithfaen_title">{{ section.settings.events_title }}</div>
+            <div class="events_text">{{ section.settings.events_text }}</div>
+            <div class="events_button"> <a class="interactionEffect2" href="{{ section.settings.events_link }}">{{ section.settings.events_button }}</a></div>
+        </div>
+        <div class="eventsConter_bottom">
+           <div class="swiper eventsSwiper">
+            <div class="swiper-wrapper">
+               {% assign events_collection = section.settings.events_collection %}
+            {% for block in events_collection.products %}
+                <div class="eventsProduct_lsit swiper-slide">
+                      {%- render 'product-item', product: block, sizes_attribute: sizes_attribute -%}
+                </div>
+            {% endfor %}
+            </div>
+             <div class="swiper-button-next"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.59175 20C8.47866 19.9947 8.36933 19.9555 8.27647 19.8871C8.18361 19.8187 8.11104 19.7238 8.06721 19.6135C8.02338 19.5031 8.01008 19.3819 8.02886 19.2639C8.04765 19.146 8.09774 19.036 8.17332 18.9469L14.7188 12.0179L8.17332 5.06776C8.06235 4.95046 8 4.79137 8 4.62548C8 4.45959 8.06235 4.3005 8.17332 4.1832C8.28429 4.0659 8.43481 4 8.59175 4C8.74869 4 8.89921 4.0659 9.01018 4.1832L15.7051 11.2492C15.7985 11.3471 15.8726 11.4635 15.9231 11.5918C15.9737 11.7202 15.9998 11.8578 15.9998 11.9968C15.9998 12.1358 15.9737 12.2735 15.9231 12.4018C15.8726 12.5301 15.7985 12.6466 15.7051 12.7445L9.01018 19.8105C8.95621 19.8703 8.8913 19.918 8.81937 19.9506C8.74744 19.9832 8.67 20 8.59175 20Z" fill="#151515"></path></svg></div>
+             <div class="swiper-button-prev"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.4082 20C15.33 20 15.2525 19.9832 15.1806 19.9506C15.1087 19.918 15.0438 19.8703 14.9898 19.8105L8.2947 12.7445C8.20132 12.6466 8.1272 12.5301 8.07662 12.4018C8.02604 12.2735 8 12.1358 8 11.9968C8 11.8578 8.02604 11.7202 8.07662 11.5918C8.1272 11.4635 8.20132 11.3471 8.2947 11.2492L14.9898 4.1832C15.0447 4.12512 15.11 4.07905 15.1818 4.04761C15.2536 4.01618 15.3305 4 15.4082 4C15.4859 4 15.5629 4.01618 15.6347 4.04761C15.7065 4.07905 15.7717 4.12512 15.8267 4.1832C15.8816 4.24128 15.9252 4.31023 15.955 4.38612C15.9847 4.46201 16 4.54334 16 4.62548C16 4.70762 15.9847 4.78895 15.955 4.86484C15.9252 4.94073 15.8816 5.00968 15.8267 5.06776L9.28103 11.9968L15.8267 18.9259C15.9023 19.015 15.9524 19.1249 15.9711 19.2429C15.9899 19.3609 15.9766 19.4821 15.9328 19.5924C15.889 19.7027 15.8164 19.7976 15.7235 19.866C15.6307 19.9345 15.5213 19.9736 15.4082 19.9789V20Z" fill="#151515"></path></svg></div>
+           </div>
+        </div>
+         <div class="events_button1"> <a class="interactionEffect2" href="{{ section.settings.events_link1 }}">{{ section.settings.events_button1 }}</a></div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+      
+         var mySwiper = new Swiper(".eventsSwiper", {
+        navigation: {
+          nextEl: ".eventsSwiper .swiper-button-next",
+          prevEl: ".eventsSwiper .swiper-button-prev",
+        },
+         breakpoints: {
+        320: {  //当屏幕宽度大于等于320
+            slidesPerView: 1.5,
+            spaceBetween: 10,
+        },
+        741: {  //当屏幕宽度大于等于741
+            slidesPerView: 5,
+            spaceBetween: 10,
+        }
+      }
+      });
+       mySwiper.navigation.$nextEl.addClass('hide');
+       mySwiper.navigation.$prevEl.addClass('hide');
+        //鼠标移出隐藏按钮，移入显示按钮
+  mySwiper.el.onmouseover=function(){
+    mySwiper.navigation.$nextEl.removeClass('hide');
+    mySwiper.navigation.$prevEl.removeClass('hide');
+  }
+  mySwiper.el.onmouseout=function(){
+    mySwiper.navigation.$nextEl.addClass('hide');
+    mySwiper.navigation.$prevEl.addClass('hide');
+  }
+    })
+  
+</script>
+{% schema %}
+{
+"name": "Events",
+"settings": [
+    {
+"type": "text",
+"id": "events_title",
+"label": "Title"
+},
+{
+"type": "richtext",
+"id": "events_text",
+"label": "Description"
+},
+{
+"type": "text",
+"id": "events_button",
+"label": "Module upper button"
+},
+{
+"type": "url",
+"id": "events_link",
+"label": "Button link above the module"
+},
+{
+"type": "collection",
+"id": "events_collection",
+"label": "Select activity collection"
+},
+{
+"type": "text",
+"id": "events_button1",
+"label": "Module lower button"
+},
+{
+"type": "url",
+"id": "events_link1",
+"label": "Button link below the module"
+}
+],
+"blocks" : [],
+"presets": [{
+"name": "Events"
+}]
+}
+{% endschema %}

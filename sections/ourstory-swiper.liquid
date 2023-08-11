@@ -1,0 +1,144 @@
+<style>
+    @media only screen and (max-width:750px) {
+        .ourstory-swiper-all {
+            padding: 14px 0;
+            background: {{section.settings.background}};
+        }
+        .ourstory-swiper-all .ourstory_slide{
+            font-weight: 300;
+            width: auto !important;
+            font-size: {{section.settings.m_font_size}}px;
+        }
+       
+        .ourstory_swiper .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+    }
+    @media only screen and (min-width:750px) {
+        .ourstory-swiper-all {
+            background: {{section.settings.background}};
+            padding: 20px 0;
+            border-top: 1px solid #000000;
+            border-bottom: 1px solid #000000;
+        }
+        .ourstory-swiper-all .ourstory_slide{
+            font-weight: 600;
+            width: auto !important;
+            font-size: {{section.settings.font_size}}px;
+        }
+       
+        .ourstory_swiper .swiper-wrapper {
+            transition-timing-function: linear !important;
+        }
+        .ourstory_swiper li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+        .ourstory_swiper li:before {
+            content: "";
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background-color: #000;
+            border-radius: 50%;
+            margin-right:100px;
+        }
+    }
+    .ourstory-swiper-all .swiper{
+        overflow: hidden;
+    }
+    .ourstory_swiper .swiper-wrapper {
+ transition-timing-function: linear !important;
+ }
+</style>
+<div class="ourstory-swiper-all">
+    <!-- Swiper -->
+    <div class="swiper ourstory_swiper">
+        <div class="swiper-wrapper ourstory_wrapper">
+            {% for block in section.blocks %}
+                <div class="swiper-slide ourstory_slide">
+                    {{block.settings.title}}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        var swiper = new Swiper(".ourstory_swiper", {
+             observer: true,
+        observeParents: true,
+            speed: 6000,
+            loop: true,
+            autoplay: {
+                delay: 0,
+                stopOnLastSlide: false,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                320: {
+                    //当屏幕宽度大于等于320
+                    slidesPerView: 1.2,
+                    spaceBetween: 20,
+                },
+                741: {
+                    //当屏幕宽度大于等于741
+                    slidesPerView: "auto",
+                    spaceBetween: 100,
+                },
+            },
+        });
+    })
+</script>
+{% schema %}
+    {
+        "name": "ourstory swiper",
+        "settings": [
+            {
+                "type": "color",
+                "id": "background",
+                "label": "background"
+            },
+            {
+                "type": "range",
+                "id": "font_size",
+                "max": 60,
+                "min": 12,
+                "step": 1,
+                "unit": "px",
+                "default": 18,
+                "label": "pc font size"
+            },
+            {
+                "type": "range",
+                "id": "m_font_size",
+                "max": 60,
+                "min": 12,
+                "step": 1,
+                "unit": "px",
+                "default": 12,
+                "label": "mobile font size"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "ourstory",
+                "name": "industry_icon",
+                "settings": [
+                    {
+                        "type":"richtext",
+                        "id": "title",
+                        "label": "title"
+                    }
+
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "ourstory swiper"
+            }
+        ]
+    }
+{% endschema %}

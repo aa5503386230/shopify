@@ -1,0 +1,638 @@
+<style>
+  @media only screen and (max-width:750px) {
+
+    .beerSlider_conter {
+      overflow: hidden;
+    }
+    .beerSlider_swiper {
+      position: relative;
+      padding-bottom: 50px;
+    }
+    .beerSlider_swiper .swiper-pagination-bullet {
+      width: 25px;
+      height: 4px;
+      border-radius: 4px;
+    }
+    .beerSlider_swiper .swiper-pagination-bullet-active {
+      width: 25px;
+      height: 4px;
+      background: #BE163D;
+      border-radius: 4px;
+    }
+    .beerSlider_text {
+      text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 15px;
+    }
+    .beerSlider_slide {
+      margin-top: 50px;
+    }
+    .beerSlider_left {
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+       .beerSlider_left .beerSlider_title {
+      text-align: center;
+    }
+
+    .beerSlider_list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .comparison_conter {
+      text-align: center;
+      margin-top: 15px;
+    }
+    .progress_bar {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-55%, -50%, 0);
+      color: #000;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      background: #FFFFFF;
+
+    }
+
+    .progress_bar:before,
+    .progress_bar:after {
+      content: '';
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      top: 50%;
+      border-top: solid 2px #151515;
+      border-left: solid 2px #151515;
+      transform-origin: 0 0;
+    }
+
+    .progress_bar:before {
+      left: 13px;
+      transform: rotate(-45deg);
+    }
+
+
+    .progress_bar:after {
+      right: 1px;
+      transform: rotate(135deg);
+    }
+    .individualImg {
+      height: 235px;
+      width: 100%;
+    }
+    .individualImg img {
+      width: 100%;
+      height: 100%;
+    }
+    div#comparison {
+      width: 100%;
+      height: 100%;
+      max-width: 375px;
+      max-height: 300px;
+      overflow: hidden;
+      position: relative;
+    }
+    div#comparison .beforeImg {
+      background-size: cover;
+      position: relative;
+      font-size: 0;
+      width: 100%;
+      margin: 0;
+      min-height: 300px;
+      overflow: hidden;
+    }
+    div#comparison .beforeImg::before {
+      content: 'After';
+      position: absolute;
+      width: 100%;
+      background: #FBE1C2;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 14px;
+      font-weight: 300;
+      color: #151515;
+      line-height: 1.5;
+      text-align: right;
+      padding: 5px 65px;
+    }
+    div#comparison figure > img {
+      position: relative;
+      width: 100%;
+    }
+    div#comparison figure .afterImg::after {
+      content: 'Before';
+      position: absolute;
+      width: 100%;
+      background: #FBE1C2;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      font-size: 14px;
+      font-weight: 300;
+      color: #1f2121;
+      line-height: 1.5;
+      text-align: center;
+      padding: 5px 0;
+    }
+    div#comparison figure div {
+      display: inline-block;
+      background-size: cover;
+      position: absolute;
+      width: 50%;
+      border-right: 3px solid rgb(255 255 255);
+      overflow: hidden;
+      bottom: 0;
+      min-height: 300px;
+    }
+
+
+    input[type='range'] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      position: absolute;
+      top: 50%;
+      left: -3%;
+      background-color: rgba(255, 255, 255, 0);
+      width: 105%;
+      cursor: pointer;
+    }
+    input[type='range']:focus {
+      outline: none;
+    }
+    input[type='range']:active {
+      outline: none;
+    }
+
+    input[type='range']::-moz-range-track {
+      -moz-appearance: none;
+      height: 15px;
+      width: 98%;
+      background: #fff;
+      position: relative;
+      outline: none;
+
+    }
+
+    input[type='range']::active {
+      border: none;
+      outline: none;
+    }
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 55px;
+      height: 55px;
+      background: transparent;
+      border-radius: 50%;
+      position: relative;
+
+    }
+
+    input[type='range']::-moz-range-thumb {
+      -moz-appearance: none;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 55px;
+      height: 55px;
+      background: transparent;
+      border-radius: 50%;
+
+    }
+    input[type='range']:focus::-webkit-slider-thumb {
+      background: transparent;
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+    }
+    input[type='range']:focus::-moz-range-thumb {
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background: transparent;
+
+    }
+  }
+  @media only screen and (min-width: 751px) and(max-width: 1024px) {
+    .individualImg {
+      min-height: 337px !important;
+    }
+    div#comparison {
+      max-width: 430px !important;
+      max-height: 337px !important;
+    }
+    div#comparison .beforeImg {
+      min-height: 337px !important;
+    }
+    div#comparison figure div {
+      min-height: 337px !important;
+    }
+  }
+  @media only screen and (min-width:750px) {
+
+    .beerSlider_conter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .beerSlider_left {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .beerSlider_left .beerSlider_title {
+      text-align: left;
+    }
+    .beerSlider_text {
+      font-size: 18px;
+      color: #151515;
+      font-weight: 300;
+      line-height: 1.5;
+      margin-top: 50px;
+      margin-bottom: 60px;
+    }
+
+    .beerSlider_button .interactionEffect {
+      color: {{ section.settings.bottonText }};
+      background-color: {{ section.settings.botton }};
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5;
+      padding: 10px 25px;
+      width: 100%;
+       
+    }
+    .beerSlider_list {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .comparison_conter {
+      text-align: center;
+      margin-top: 25px;
+    }
+
+
+    .progress_bar {
+      position: absolute;
+      z-index: 2;
+      pointer-events: none;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-58%, -50%, 0);
+      color: #000;
+      border-radius: 50%;
+      width: 75px;
+      height: 75px;
+      background: #fff;
+    }
+    .progress_bar:before,
+    .progress_bar:after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      top: 50%;
+      border-top: solid 3px #151515;
+      border-left: solid 3px #151515;
+      transform-origin: 0 0;
+    }
+
+    .progress_bar:before {
+      left: 13px;
+      transform: rotate(-45deg);
+    }
+
+    .progress_bar:after {
+      right: -10px;
+      transform: rotate(135deg);
+    }
+    .individualImg {
+      width: 100%;
+    }
+    .individualImg img {
+      width: 100%;
+      height: 100%;
+    }
+    div#comparison {
+      width: 100%;
+      height: 100%;
+      max-width: 740px;
+      max-height: 620px;
+      overflow: hidden;
+      position: relative;
+    }
+    div#comparison .beforeImg {
+      background-size: cover;
+      position: relative;
+      font-size: 0;
+      width: 100%;
+      margin: 0;
+      min-height: 620px;
+      overflow: hidden;
+    }
+    div#comparison .beforeImg::before {
+      content: '';
+      position: absolute;
+      background: #FBE1C2;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    div#comparison figure > img {
+      position: relative;
+      width: 100%;
+    }
+    div#comparison figure .afterImg::after {
+      content: '';
+      position: absolute;
+      background: #FBE1C2;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    div#comparison figure div {
+      display: inline-block;
+      background-size: cover;
+      position: absolute;
+      width: 50%;
+      border-right: 6px solid rgb(255 255 255);
+      overflow: hidden;
+      bottom: 0;
+      min-height: 620px;
+    }
+
+
+    input[type='range'] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      position: absolute;
+      top: 45%;
+      left: -3%;
+      background-color: rgba(255, 255, 255, 0);
+      width: 105%;
+      cursor: pointer;
+    }
+    input[type='range']:focus {
+      outline: none;
+    }
+    input[type='range']:active {
+      outline: none;
+    }
+
+    input[type='range']::-moz-range-track {
+      -moz-appearance: none;
+      height: 15px;
+      width: 98%;
+      background: #fff;
+      position: relative;
+      outline: none;
+
+    }
+
+    input[type='range']::active {
+      border: none;
+      outline: none;
+    }
+    input[type='range']::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 55px;
+      height: 55px;
+      background: transparent;
+      border-radius: 50%;
+      position: relative;
+
+    }
+
+    input[type='range']::-moz-range-thumb {
+      -moz-appearance: none;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      width: 55px;
+      height: 55px;
+      background: transparent;
+      border-radius: 50%;
+
+    }
+    input[type='range']:focus::-webkit-slider-thumb {
+      background: transparent;
+      background-size: 100%;
+      background-repeat: no-repeat;
+
+    }
+    input[type='range']:focus::-moz-range-thumb {
+      background-size: 100%;
+      background-repeat: no-repeat;
+      background: transparent;
+
+    }
+  }
+</style>
+<div class="beforeAfter_conter margin-top">
+  <div class="compareConter container">
+    <div class="hidden-phone">
+      <div class="beerSlider_conter">
+        <div class="beerSlider_left">
+          <div class="beerSlider_title ithfaen_title">{{ section.settings.subtitle }}</div>
+          <div class="beerSlider_text">{{ section.settings.describe }}</div>
+          <div class="beerSlider_button">
+            <a class="interactionEffect btn-15" href=" {% if section.settings.beerSlider_link != blank %} {{ section.settings.beerSlider_link }} {% else %} javascript:; {% endif %}">{{ section.settings.beerSlider_botton }}</a>
+          </div>
+        </div>
+        <div class="beerSlider_list">
+          {% if section.settings.individualImg != blank or section.settings.individualImg_m != blank %}
+            <div class="individualImg">
+              <img
+                class="lazyload"
+                src="{{section.settings.individualImg | img_url: '740x621' }}"
+                alt="section.settings.individualImg">
+            </div>
+          {% else %}
+            <div id="comparison">
+              <figure
+                class="beforeImg"
+                style=" background-image:url({{ section.settings.beforeImg | img_url: '740x621' }})"
+                data-before="{{ section.settings.beforeImg | img_url: '740x621' }}">
+                <div
+                  class="afterImg"
+                  style=" background-image:url({{ section.settings.afterImg | img_url: '740x621' }})"
+                  id="divisor"
+                  data-after="{{ section.settings.afterImg | img_url: '740x621' }}"></div>
+              </figure>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value="50"
+                id="slider"
+                oninput="moveDivisors()">
+              <span class="progressBar progress_bar" style="left: 50%"></span>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <div class="hidden-tablet-and-up">
+      <div class="beerSlider_conter">
+        <div class="beerSlider_left">
+          <div class="beerSlider_title ithfaen_title">{{ section.settings.subtitle }}</div>
+          <div class="beerSlider_text">{{ section.settings.describe }}</div>
+          {% comment %} <div class="beerSlider_button">
+            <a class="interactionEffect btn-15" href=" {% if section.settings.beerSlider_link != blank %} {{ section.settings.beerSlider_link }} {% else %} javascript:; {% endif %}">{{ section.settings.beerSlider_botton }}</a>
+          </div> {% endcomment %}
+        </div>
+        <div class="beerSlider_slide">
+          <div class="beerSlider_list">
+            {% if section.settings.individualImg != blank or section.settings.individualImg_m != blank %}
+              <div class="individualImg">
+                <img
+                  class="lazyload"
+                  src="{{section.settings.individualImg_m | img_url: '600x470' }}"
+                  alt="section.settings.individualImg_m">
+              </div>
+            {% else %}
+              <div id="comparison" class="swiper-no-swiping">
+                <figure
+                  class="beforeImg"
+                  style=" background-image:url({{ section.settings.beforeImg1 | img_url: '689x577' }})"
+                  data-before="{{ section.settings.beforeImg1 | img_url: '689x577' }}">
+                  <div
+                    class="afterImg"
+                    style=" background-image:url({{ section.settings.afterImg1 | img_url: '689x577' }})"
+                    id="divisor1"
+                    data-after="{{ section.settings.afterImg1 | img_url: '689x577' }}"></div>
+                </figure>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value="50"
+                  id="slider1"
+                  oninput="moveDivisor1()">
+                <span class="progressBar1 progress_bar" style="left: 50%"></span>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+<script>
+  var divisor = $('#divisor');
+  var divisor1 = $('#divisor1');
+  var slider = document.getElementById('slider');
+  var slider1 = document.getElementById('slider1');
+  function moveDivisors() {
+    divisor.css('width', slider.value + '%');
+    $('.progressBar').css({
+        left: `${
+        slider.value
+      }%`,
+      transition: 'unset'
+    })
+  }
+  function moveDivisor1() {
+    divisor1.css('width', slider1.value + '%');
+    $('.progressBar1').css({
+        left: `${
+        slider1.value
+      }%`,
+      transition: 'unset'
+    })
+  }
+</script>
+{% schema %}
+  {
+    "name": "beerSlider",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "subtitle",
+        "label": "Heading"
+      },
+      {
+        "type": "richtext",
+        "id": "describe",
+        "label": "describe"
+      },
+      {
+        "type": "text",
+        "id": "beerSlider_botton",
+        "label": "beerSlider botton"
+      },
+      {
+        "type": "url",
+        "id": "beerSlider_link",
+        "label": "beerSlider botton link"
+      },
+       {
+        "type": "color",
+        "id": "botton",
+        "label": "botton",
+        "default": "rgba(0,0,0,0)"
+      }, 
+      {
+        "type": "color",
+        "id": "bottonText",
+        "label": "Botton Text",
+        "default": "rgba(0,0,0,0)"
+      },
+       {
+        "type": "image_picker",
+        "id": "individualImg",
+        "label": "compare individual images"
+      }, 
+      {
+        "type": "image_picker",
+        "id": "individualImg_m",
+        "label": "compare individual images M"
+      },  
+       {
+        "type": "image_picker",
+        "id": "afterImg",
+        "label": "Before Image"
+      },
+       {
+        "type": "image_picker",
+        "id": "afterImg1",
+        "label": "Before Image Mobile"
+      },
+       {
+        "type": "image_picker",
+        "id": "beforeImg",
+        "label": "After Image"
+      },
+         {
+        "type": "image_picker",
+        "id": "beforeImg1",
+        "label": "After Image Mobile"
+      }
+    ],
+    "blocks": [],
+    "presets": [
+      {
+        "name": "beerSlider"
+      }
+    ]
+  }
+{% endschema %}

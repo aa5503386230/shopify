@@ -1,0 +1,188 @@
+<style>
+       @media screen and (max-width: 750px) {
+
+  }
+  @media screen and (min-width: 750px) {
+     {%- for block in section.blocks -%}
+    #block-{{ section.id }}-{{ block.id }} {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      {% if block.settings.location == 'left'  %}
+        flex-direction: row;
+      {% else %}
+        flex-direction: row-reverse;
+      {% endif %}
+    }
+    .graphicList_left {
+      width: 51%;
+      display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+     {% if block.settings.typesetting == 'left' %}
+        align-items: flex-start;
+      {% elsif block.settings.typesetting == 'right' %}
+       align-items: flex-end;
+       {% else %}
+        align-items: center;
+      {% endif %}
+    {% if block.settings.location == 'left'  %}
+      padding-right: 15%;
+      {% else %}
+       padding-left: 15%;
+      {% endif %}
+   
+    }
+    .graphicList_img {
+        width: 49%;
+    }
+    .graphicList_img img {
+      width: 100%;
+    }
+    .graphicList_text {
+      font-size: 18px;
+      font-weight: 300;
+      color: #151515;
+      line-height: 1.5;
+      margin-top: 15px;
+      margin-bottom: 30px;
+      {% if block.settings.typesetting == 'left' %}
+        text-align: left;
+        padding-right: 90px;
+      {% elsif block.settings.typesetting == 'right' %}
+        text-align: right;
+       {% else %}
+        text-align: center;
+      {% endif %}
+      
+      
+    }
+ 
+    .graphicList_butoon .interactionEffect {
+      background-color: {{ block.settings.botton }};
+      display: inline-block;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: {{ block.settings.bottonText }};
+      padding: 10px 25px;
+      width: 100%;
+      
+    }
+
+    {% endfor %}
+  }
+</style>
+<div class="margin-top graphicModule">
+    <div class="container graphicModule_box" >
+       {%- for block in section.blocks -%}
+          <div class="graphicList" id="block-{{ section.id }}-{{ block.id }}">
+            <div class="graphicList_left"> 
+            <div class="graphicList_title ithfaen_title">{{ block.settings.graphic_title }}</div>
+            <div class="graphicList_text">{{ block.settings.graphic_text }}</div>
+            <div class="graphicList_butoon"> <a class="interactionEffect btn-15" href="{% if block.settings.graphic_link != blank %} {{ block.settings.graphic_link }} {% else %} javascript:; {% endif %}">{{ block.settings.graphic_botton }}</a> </div>
+            </div>
+            <div class="graphicList_img" >
+              <img loading="lazy"  class=" hidden-phone" src="{{block.settings.graphic_img | img_url: '822x' }}" alt="{{block.settings.graphic_img.alt}}">
+              <img loading="lazy" class=" hidden-tablet-and-up" src="{{block.settings.graphic_img1 | img_url: '946x' }}"  alt="{{block.settings.graphic_img1.alt}}">
+            </div>
+         </div>
+        {% endfor %}
+    </div>
+</div>
+{% schema %}
+{
+"name": "Graphic Module",
+"settings": [],
+"blocks" : [
+{
+"type": "graphicList",
+"name": "graphic_list",
+"settings":[
+    {
+      "type": "select",
+      "id": "location",
+      "label": "Graphic left and right",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        }
+      ],
+      "default": "left"
+},
+ {
+      "type": "select",
+      "id": "typesetting",
+      "label": "Typesetting layout of copywriting",
+      "options": [
+        {
+          "value": "left",
+          "label": "left"
+        },
+        {
+          "value": "right",
+          "label": "right"
+        },
+          {
+          "value": "center",
+          "label": "center"
+        }
+      ],
+      "default": "left"
+},
+{
+"type": "image_picker",
+"id": "graphic_img",
+"label": "Image"
+},
+{
+"type": "image_picker",
+"id": "graphic_img1",
+"label": "Mobile Image"
+},
+{
+"type": "text",
+"id": "graphic_title",
+"label": "Title"
+},
+{
+"type": "richtext",
+"id": "graphic_text",
+"label": "text"
+},
+{
+"type": "text",
+"id": "graphic_botton",
+"label": "graphic botton"
+},
+{
+"type": "url",
+"id": "graphic_link",
+"label": "graphic botton link"
+},
+{
+"type": "color",
+"id": "botton",
+"label": "botton",
+"default": "rgba(0,0,0,0)"
+},
+{
+"type": "color",
+"id": "bottonText",
+"label": "Botton Text",
+"default": "rgba(0,0,0,0)"
+}
+]
+}
+],
+"presets": [{
+"name": "Graphic Module"
+}]
+}
+{% endschema %}

@@ -1,0 +1,176 @@
+<style>
+    @media (max-width:999px){
+        .our_philosophy_all{
+            background-color: {{section.settings.background}};
+        }
+        .our_philosophy_all .our_philosophy{
+            padding: 76px 34px;
+            align-items: center;
+        }
+        
+        .our_philosophy_all .head_description{
+            text-align: center;
+        }
+
+        .our_philosophy_all .title_one,.our_philosophy_all .title_two{
+            font-weight: 300;
+            line-height: 1.8;
+            padding-top: 12px;
+            letter-spacing: 0.8px;
+            font-size: {{section.settings.title_m_font_size}}px;
+        }
+        .our_philosophy_all .description{
+            font-weight: 300;
+            padding-top: 10px;
+            letter-spacing: 0.3px;
+            font-size: {{section.settings.text_m_font_size}}px;
+        }
+    }
+    @media(min-width:1000px){
+        .our_philosophy_all{
+            background-color: {{section.settings.background}};
+        }
+        .our_philosophy_all .our_philosophy{
+            padding:100px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .our_philosophy_all .image_left{
+            padding: 0 46px 222px 0;
+        }
+        .our_philosophy_all .image_right{
+            padding: 222px 0 0 46px;
+        }
+        .our_philosophy_all .head_description .ithfaen_title{
+            text-align: center;
+            
+        }
+         .our_philosophy_all .head_description {
+            text-align: center;
+            
+        }
+ 
+        .our_philosophy_all .title_one,.our_philosophy_all .title_two{
+            font-weight: 600;
+            line-height: 1.8;
+            padding-top: 18px;
+            font-size: {{section.settings.title_font_size}}px;
+        }
+        .our_philosophy_all .description{
+            font-weight: 300;
+            padding-top: 10px;
+            font-size: {{section.settings.text_font_size}}px;
+        }
+    }
+</style>
+<div class="our_philosophy_all">
+    <div class="container">
+        <div class="our_philosophy">
+            <img loading="lazy" class="image_left hidden-phone" {% render 'image-attributes' , image: section.settings.img_1%}>
+            <div class="head_description">
+                <div class="header ithfaen_title">{{section.settings.header}}</div>
+                <div class="title_one">{{section.settings.title_one}}</div>
+                <div class="description hidden-phone">{{section.settings.description}}</div>
+                <div class="description hidden-tablet-and-up">{{section.settings.m_description}}</div>
+                <div class="title_two">{{section.settings.title_two}}</div>
+            </div>
+            <img loading="lazy" class="image_right hidden-phone" {% render 'image-attributes' , image: section.settings.img_2%}>
+        </div>
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "our philosophy",
+        "class": "our_philosophy",
+        "settings": [
+            {
+                "type": "richtext",
+                "id": "header",
+                "label": "header"
+            },
+          
+            {
+                "type": "richtext",
+                "id": "title_one",
+                "label": "title"
+            },
+            {
+                "type": "richtext",
+                "id": "title_two",
+                "label": "title"
+            },
+            {
+                "type": "range",
+                "id": "title_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "pc font size",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "title_m_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "mobile font size",
+                "default": 12
+            },
+            {
+                "type": "richtext",
+                "id": "description",
+                "label": "text"
+            },
+            {
+                "type": "richtext",
+                "id": "m_description",
+                "label": "mobile text"
+            },
+            {
+                "type": "range",
+                "id": "text_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": " pc font size",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "text_m_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "mobile font size",
+                "default": 12
+            },
+            {
+                "type": "color",
+                "id": "background",
+                "label": "background"
+            },
+            {
+                "type": "image_picker",
+                "id": "img_1",
+                "label": "Img"
+            },
+            {
+                "type": "image_picker",
+                "id": "img_2",
+                "label": "Img"
+            }
+        ],
+        "blocks": [],
+        "presets": [
+            {
+                "name": "our philosophy"
+            }
+        ]
+    }
+{% endschema %}

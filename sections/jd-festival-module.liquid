@@ -1,0 +1,161 @@
+<style>
+@media screen and (max-width: 750px) {
+
+  }
+  @media screen and (min-width: 750px) {
+    .festival_box {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 15px;
+    }
+    .festival_img {
+        width: 100%;
+        overflow: hidden;
+    }
+    .festival_img a {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+      
+    }
+    .festival_img a img {
+        width: 100%;
+    }
+    .festivalImg_text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-size: 30px;
+        font-weight: 300;
+        color: #FFFFFF;
+        line-height: 1.5;
+    }
+    
+    .festival_text {
+        font-size: 18px;
+        font-weight: 300;
+        color: #151515;
+        line-height: 1.5;
+        margin-top: 25px;
+        margin-bottom: 25px;
+    }
+      {%- for block in section.blocks -%}
+         #block-{{ section.id }}-{{ block.id }} {
+        background-color:{{ block.settings.background }};
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0 70px;
+    }
+
+    #block-{{ section.id }}-{{ block.id }} .festival_botton .interactionEffect {
+           color: {{ block.settings.bottonText }};
+            background-color: {{ block.settings.botton }};
+           display: inline-block;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 1.5;
+            padding: 10px 25px;
+            width: 100%;
+    }
+    {% endfor %}
+  } 
+</style>
+<div class="margin-top festivalModule">
+    <div class="festival_box">
+       {%- for block in section.blocks -%}
+             {% if block.settings.festivalList_img != blank or block.settings.festivalList_img1 != blank %}
+             <div class="festival_img"> 
+               <a class="hovera" href="{% if block.settings.festival_link != blank %} {{ block.settings.festival_link }} {% else %} javascript:; {% endif %}">
+                  <img class="lazyload hidden-phone" src="{{ block.settings.festivalList_img | img_url: '623x627' }}" alt="{{block.settings.festivalList_img.alt}}">
+                  <img class="lazyload hidden-tablet-and-up" src="{{ block.settings.festivalList_img1 | img_url: '946x' }}"  alt="{{block.settings.festivalList_img1.alt}}">
+                   <span class="festivalImg_text">{{ block.settings.festivalImg_text }}</span>
+               </a>
+             </div>
+            {% else %}
+            <div class="festival_conter"  id="block-{{ section.id }}-{{ block.id }}">
+               <div class="festival_title ithfaen_title">{{ block.settings.festival_title }}</div>
+               <div class="festival_text">{{ block.settings.festival_text }}</div>
+               <div class="festival_botton"> <a class="interactionEffect btn-15" href="{% if block.settings.festival_link != blank %} {{ block.settings.festival_link }} {% else %} javascript:; {% endif %}">{{ block.settings.festival_botton }}</a> </div>
+            </div> 
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% schema %}
+{
+"name": "Festival Module",
+"settings": [],
+"blocks" : [
+{
+"type": "festivalList",
+"name": "festival_list",
+"settings":[
+{
+"type": "text",
+"id": "festival_title",
+"label": "title"
+},
+{
+"type": "richtext",
+"id": "festival_text",
+"label": "text"
+},
+{
+"type": "text",
+"id": "festivalImg_text",
+"label": "image Text"
+},
+{
+"type": "image_picker",
+"id": "festivalList_img",
+"label": "Image"
+},
+{
+"type": "image_picker",
+"id": "festivalList_img1",
+"label": "Mobile Image"
+},
+{
+"type": "url",
+"id": "festivalList_link",
+"label": "link"
+},
+{
+"type": "text",
+"id": "festival_botton",
+"label": "botton text"
+},
+{
+"type": "url",
+"id": "festival_link",
+"label": "right botton link"
+},
+{
+"type": "color",
+"id": "background",
+"label": "background",
+"default": "rgba(0,0,0,0)"
+},
+{
+"type": "color",
+"id": "botton",
+"label": "botton",
+"default": "rgba(0,0,0,0)"
+},
+{
+"type": "color",
+"id": "bottonText",
+"label": "Botton Text",
+"default": "rgba(0,0,0,0)"
+}
+]
+}
+],
+"presets": [{
+"name": "Festival Module"
+}]
+}
+{% endschema %}

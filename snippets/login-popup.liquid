@@ -1,0 +1,591 @@
+{%- capture status -%}
+  {%- form 'recover_customer_password' -%}
+    {%- if form.posted_successfully? -%}
+      {%- assign is_recover_posted_successfully = true -%}
+    {%- else -%}
+      {%- assign is_recover_posted_successfully = false -%}
+    {%- endif -%}
+  {%- endform -%}
+{%- endcapture -%}
+<style>
+    .loginCustomer .before\:bg-body:before {
+      background-color: #151515;
+    }
+
+    .loginCustomer .inputConter_box label {
+      position: absolute;
+      top: -35px !important;
+      left: 0px !important;
+      font-size: 18px !important;
+      color: #151515;
+      line-height: 1.5;
+      font-weight: 500;
+      opacity: 1;
+    }
+    .loginCustomer .inputConter_box {
+      padding-bottom: 20px;
+    }
+    .loginCustomer .inputConter_box input {
+      border: 1px solid #a0a0a0;
+    }
+    .loginCustomer .inputConter_box input[animate-label]:focus {
+      padding: 13px !important;
+    }
+    .loginCustomer .inputConter_box input[animate-label]:-webkit-autofill,.loginCustomer .input[animate-label]:not(:placeholder-shown) {
+      padding: 13px !important;
+    }
+.resetPassword_cancel::after {
+    display: none;
+  }
+  .resetPassword_submit::after {
+    display: none;
+  }
+  .resetPassword_cancel::before {
+    display: none;
+  }
+  .resetPassword_submit::before {
+    display: none;
+  }
+   .loginBotton::after {
+      display: none;
+    }
+
+    @media only screen and (max-width:769px) {
+      .loginCustomer_title h2 {
+      font-size: 22px;
+      color: #151515;
+      line-height: 1.5;
+      text-align: center;
+      font-weight: 600;
+      text-transform: capitalize;
+      margin-bottom: 55px;
+    }
+    .gridLeft_sha {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 350ms cubic-bezier(0.1, 0.1, 0, 1);
+  }
+        .loginPopup {
+        display: none;
+        z-index: 9999;
+        height: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 95%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        box-shadow: 0px 1px 5px 0px rgb(98 98 98 / 30%);
+        border-radius: 7px;
+        }
+        .loginClosure {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+        }
+        .loginBotton {
+     background: #6789dd;
+    border: 1px solid #6789dd;
+    }
+
+
+  .popupTitle {
+    border: 1px solid rgb(21 21 21 / 30%);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .popupTitle:first-of-type{
+    margin-right: 40px;
+  }
+
+   .popupTitle1 {
+    color: #6789dd;
+    border: 1px solid #6789dd;
+   }
+   .loginPopup-conter:first-of-type {
+        display: block;
+    }
+     
+    .loginPopup-conter {
+        display: none;
+    }
+    .tab_login_register_box {
+        padding: 25px;
+    }
+    .loginPrompt {
+      text-align: center;
+      margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #151515;
+    font-weight: 500;
+    }
+    .loginPrompt a {
+      color: #6789dd;
+    text-decoration: underline;
+    }
+    .resetPassword_submit {
+      background: #6789dd;
+    border: 1px solid #6789dd;
+    }
+    .resetPassword_cancel {
+      background: #6789dd;
+      border: 1px solid #6789dd;
+      color: #fff;
+    }
+    }
+    @media only screen and (min-width:769px) {
+      .loginCustomer_title h2 {
+      font-size: 36px !important;
+      color: #151515;
+      line-height: 1.5;
+      text-align: center;
+      text-transform: capitalize;
+      margin-bottom: 50px;
+    }
+   .loginCustomer {
+    padding: 30px 30px 57px;
+   }
+
+  
+  .gridLeft_sha {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: opacity 350ms cubic-bezier(0.1, 0.1, 0, 1);
+  }
+        .loginPopup {
+        display: none;
+        z-index: 9999;
+        height: auto;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 35%;
+        max-width: 450px;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        box-shadow: 0px 1px 5px 0px rgb(98 98 98 / 30%);
+        border-radius: 7px;
+        }
+        .loginClosure {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            cursor: pointer;
+        }
+   .account__block-item .form__submit {
+background: #151515;
+   }
+
+  .popupTitle {
+    border: 1px solid rgb(21 21 21 / 30%);
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .popupTitle:first-of-type{
+    margin-right: 40px;
+  }
+
+   .popupTitle1 {
+    color: #6789dd;
+    border: 1px solid #6789dd;
+   }
+   .loginPopup-conter:first-of-type {
+        display: block;
+    }
+     
+    .loginPopup-conter {
+        display: none;
+    }
+
+    .loginPrompt {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #151515;
+      font-weight: 500;
+    }
+    .loginPrompt a {
+      color: #151515;
+      font-weight: 400;
+    text-decoration: underline;
+    }
+    .loginPrompt a:hover {
+      color: #6789dd;
+    }
+   
+       .loginBotton {
+        background: #6789dd;
+         border: 1px solid #6789dd;
+       }
+    .loginBotton span {
+      color: #fff;
+    }
+        .loginBotton:hover {
+          background: #9bb9f3;
+          border: 1px solid #9bb9f3;
+       }
+    .passwordText {
+      text-decoration: underline;
+    }
+    .passwordText:hover {
+      color: #6789dd;
+    }
+       .obvious{
+      border: 1px solid #6789dd;
+      background: #6789dd;
+    }
+    .obvious span {
+      color: #fff;
+    }
+       .obvious:hover {
+      background: #9bb9f3;
+      border: 1px solid #9bb9f3;
+    }
+    .tab_login_register{
+        margin: 37px 30px 0;
+    }
+    .tab_login_register_form{
+        display: flex;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        border-bottom: 1px solid #E5E6E8;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .tab_login_register_form div {
+      width: 50%;
+      text-align: center;
+      cursor: pointer;
+    }
+    .tab_login_register_form div.active {
+      position: relative;
+      font-weight: 300;
+      font-size: 14px;
+    }
+    .tab_login_register_form div.active::after {
+        content: "";
+        position: absolute;
+        bottom: -11px;
+        left: 85%;
+        transform: translateX(-85%);
+        width: 100%;
+        height: 2px;
+        background-color: #222;
+      }
+        .loginPopup .loginPopup-conter .first_last_name {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 12px;
+            margin-bottom: var(--form-input-gap);
+        }
+        .loginPopup .loginPopup-conter .first_last_name .input{
+            margin: 0;
+        }
+        .loginPopup .register_img_text{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+            margin-bottom: 22px;
+            font-size: 14px;
+        }
+        .loginPopup .register_img_text div:first-child{
+            margin-bottom: 10px;
+        }
+        .loginPopup .register_img_text div:nth-child(2){
+            margin-bottom: 6px;
+        }
+        .loginPopup .register_img_text div{
+            line-height: 1;
+        }
+        .loginPopup .text--xsmall{
+            line-height: 1.5;
+            width: 100%;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #151515 !important;
+        }
+        .account__block-item .input {
+          background: #FAF6EF;
+        }
+         .account__block-item .input .input__label {
+           background: #FAF6EF;
+          font-size: 14px;
+          color: #151515;
+          font-weight: 300;
+         }
+         .loginCustomer_mailing {
+            display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 20px;
+         }
+         .loginCustomer_mailing span {
+          width: 22px;
+          height: 22px;
+          background: #151515;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 2px;
+         }
+          .loginCustomer_mailing span svg {
+            width: 100%;
+            height: 100%;
+          }
+         .loginCustomer_mailing p {
+           width: 90%;
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 1.5;
+          color: #151515;
+         }
+         .passwordEye {
+             width: 25px;
+            height: 25px;
+            background: url(https://cdn.shopify.com/s/files/1/0715/6115/0740/files/36f9d7d9c7dfd26da01690ff6294096b.png?v=1678154333) no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 13px;
+            right: 20px;
+             cursor: pointer;
+         }
+            .iconEye_no1 {
+          width: 30px;
+          height: 30px;
+          background: url(https://cdn.shopify.com/s/files/1/0715/6115/0740/files/jurassic.png?v=1678153443) no-repeat;
+          background-size: 100% 100%;
+         }
+          .passwordEye1 {
+             width: 25px;
+            height: 25px;
+            background: url(https://cdn.shopify.com/s/files/1/0715/6115/0740/files/36f9d7d9c7dfd26da01690ff6294096b.png?v=1678154333) no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 13px;
+            right: 20px;
+            cursor: pointer;
+         }
+         .iconEye_no {
+          width: 30px;
+          height: 30px;
+          background: url(https://cdn.shopify.com/s/files/1/0715/6115/0740/files/jurassic.png?v=1678153443) no-repeat;
+          background-size: 100% 100%;
+         }
+         .loginCustomer_policy {
+          font-size: 14px;
+          text-align: center;
+          font-weight: 300;
+          line-height: 1.5;
+          margin-top: 25px;
+          color: #151515;
+         }
+         .loginCustomer_policy a {
+            text-decoration: underline;
+         }
+           .overflowHidden {
+          overflow: hidden;
+         }
+         .popupShadow {
+          display: none;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background-color: #00000075;
+         }
+    }
+   
+  </style>
+<div class="loginPopup">
+    <div class="loginClosure">
+        <svg t="1663553982968" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2167" width="16" height="16"><path d="M934.382936 824.346821c30.593785 30.650067 30.593785 80.31521-0.056282 110.965278-15.268752 15.325034-35.361369 22.989597-55.452963 22.989597-20.094664 0-40.187281-7.664563-55.512315-22.989597L510.214331 622.154819 197.066261 935.312098c-15.325034 15.325034-35.417651 22.989597-55.512315 22.989597-20.092617 0-40.184211-7.664563-55.452963-22.989597-30.650067-30.650067-30.650067-80.31521-0.056282-110.965278l313.177745-313.190025L86.044702 197.966771c-30.593785-30.650067-30.593785-80.31521 0.056282-110.965278 30.537504-30.652114 80.31521-30.652114 110.965278 0L510.214331 400.158772 823.361377 87.001493c30.650067-30.652114 80.427774-30.652114 110.965278 0 30.650067 30.650067 30.650067 80.31521 0.056282 110.965278L621.205191 511.156796 934.382936 824.346821z" p-id="2168" fill="#151515"></path></svg>
+    </div>
+    <div class="tab_login_register">
+        <div class="tab_login_register_form">
+            <div class="active">Log in</div>
+            <div>Sign up</div>
+        </div>
+    </div>
+    <div class="tab_login_register_box">
+        <div class="loginPopup-conter">
+            <div class="loginCustomer">
+                <div class="account__block-list">
+                    <div class="account__block-item" >
+                            {%- form 'customer_login', name: 'login', class: 'form' -%}
+                            {%- if form.errors -%}
+                                <div class="banner banner--error form__banner" id="login-form-error">
+                                <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+                                <p class="banner__content">{{ form.errors.messages['form'] }}</p>
+                                </div>
+                            {%- endif -%}
+        
+                            <div class="input">
+                                <input type="email" id="customer[email]" autocomplete="email" class="input__field" name="customer[email]" required="required" {% if form.errors %}aria-invalid="true" aria-describedby="login-form-error"{% endif %}>
+                                <label for="customer[email]" class="input__label">{{ 'customer.login.email' | t }}</label>
+                            </div>
+        
+                            <div class="input">
+                                <input type="password" id="customer[password]" class="input__field inputPassword" name="customer[password]" required="required" autocomplete="current-password" {% if form.errors %}aria-invalid="true" aria-describedby="login-form-error"{% endif %}>
+                                <label for="customer[password]" class="input__label">{{ 'customer.login.password' | t }}</label>
+                                 <span class="passwordEye1"></span>
+                            </div>
+                            <button type="button" class=" link text--xsmall text--subdued" data-action="switch-login-form">{{ 'customer.login.forgot_password' | t }}</button>
+                            <button type="submit" is="loader-button" class="form__submit button button--primary button--full">{{ 'customer.login.submit' | t }}</button>
+        
+                            <span class="">
+                                
+                            </span>
+                            {%- endform -%}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="loginPopup-conter">
+            <div class=" loginCustomer">
+                <div class="register_img_text">
+                    <div>
+                        <div>
+                            <img loading="lazy" class="image_right " {% render 'image-attributes' , image: settings.image_1%}>
+                        </div>
+                        <div>{{settings.title_1}}</div>
+                        <div>{{settings.text_1}}</div>
+                    </div>
+                    <div>
+                        <div>
+                            <img loading="lazy" class="image_right " {% render 'image-attributes' , image: settings.image_2%}>
+                        </div>
+                        <div>{{settings.title_2}}</div>
+                        <div>{{settings.text_2}}</div>
+                    </div>
+                    <div>
+                        <div>
+                            <img loading="lazy" class="image_right " {% render 'image-attributes' , image: settings.image_3%}>
+                        </div>
+                        <div>{{settings.title_3}}</div>
+                        <div>{{settings.text_3}}</div>
+                    </div>
+                </div>
+                <div class="account__block-list">
+                    <div class="account__block-item" {{ block.shopify_attributes }}>
+                  
+                          {%- form 'create_customer', name: 'create', class: 'form', id: 'register-customer' -%}
+                            {%- if form.errors -%}
+                              <div class="banner banner--error form__banner" id="login-form-error">
+                                <span class="banner__ribbon">{% render 'icon' with 'form-error' %}</span>
+                                <div class="banner__content">{{ form.errors | default_errors }}</div>
+                              </div>
+                            {%- endif -%}
+          
+                            {%- if request.locale.iso_code == 'ja' -%}
+                            <div class="first_last_name">
+                              <div class="input">
+                                <input type="text" id="customer[last_name]" class="input__field" name="customer[last_name]" required="required" autocomplete="family-name" {% if form.errors contains 'last_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                                <label for="customer[last_name]" class="input__label">{{ 'customer.register.last_name' | t }}</label>
+                              </div>
+          
+                              <div class="input">
+                                <input type="text" id="customer[first_name]" class="input__field" name="customer[first_name]" required="required" autocomplete="given-name" {% if form.errors contains 'first_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                                <label for="customer[first_name]" class="input__label">{{ 'customer.register.first_name' | t }}</label>
+                              </div>
+                            </div>
+                            {%- else -%}
+                            <div class="first_last_name">
+                              <div class="input">
+                                <input type="text" id="customer[first_name]" class="input__field" name="customer[first_name]" required="required" autocomplete="given-name" {% if form.errors contains 'first_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                                <label for="customer[first_name]" class="input__label">{{ 'customer.register.first_name' | t }}</label>
+                              </div>
+          
+                              <div class="input">
+                                <input type="text" id="customer[last_name]" class="input__field" name="customer[last_name]" required="required" autocomplete="family-name" {% if form.errors contains 'last_name' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                                <label for="customer[last_name]" class="input__label">{{ 'customer.register.last_name' | t }}</label>
+                              </div>
+                            </div>
+                            {%- endif -%}
+          
+                            <div class="input">
+                              <input type="email" id="customer[email]" class="input__field" name="customer[email]" required="required" autocomplete="email" {% if form.errors contains 'email' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                              <label for="customer[email]" class="input__label">{{ 'customer.register.email' | t }}</label>
+                            </div>
+          
+                            <div class="input">
+                              <input type="password" id="customer[password]" class="input__field inputPassword1" name="customer[password]" required="required" autocomplete="new-password" {% if form.errors contains 'password' %}aria-invalid="true" aria-describedby="register-form-error"{% endif %}>
+                              <label for="customer[password]" class="input__label">{{ 'customer.register.password' | t }}</label>
+                               <span class="passwordEye"></span>
+                            </div>
+<!--                              <div class="loginCustomer_mailing"><span><svg t="1678096344776" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2752" width="200" height="200"><path d="M480 736c-8 0-16-3.2-22.4-9.6l-288-288c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0L480 659.2l425.6-425.6c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8l-448 448C496 732.8 488 736 480 736z" fill="#ffffff" p-id="2753"></path></svg></span> <p>YES, send me a birthday surprise and exclusive offers. <a href="">Mailing Conditions</a></p></div> -->
+                            <button type="submit" is="loader-button" class="form__submit button button--primary button--full">{{ 'customer.register.submit' | t }}</button>
+                             <div class="loginCustomer_policy">By creating an account, you agree to our <a href="">Terms</a> and <a href="">Privacy Policy</a></div>
+                            <span class="">
+                             
+                            </span>
+                          {%- endform -%}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+</div>
+<div class="popupShadow"></div>
+<script>
+$(".tab_login_register_form>div").click(function () {
+    $(this).addClass("active active::after").siblings("div").removeClass("active");
+    var index = $(this).index();
+    $(".tab_login_register_box>.loginPopup-conter:eq(" + index + ")").fadeIn(1000).siblings(".loginPopup-conter").hide()
+    })
+    $('.passwordEye1').click(function(){
+      if($('.inputPassword').hasClass('is-filled')){
+      if($('.passwordEye1').hasClass('iconEye_no')){
+        //如果有iconEye_no 就删除 把 密码框type值改成password
+             $('.passwordEye1').removeClass('iconEye_no')
+            $('.inputPassword').attr('type','password')
+      }else {
+        //否则就添加iconEye_no 把password改成text 就能看到密码
+            $('.passwordEye1').addClass('iconEye_no')
+          $('.inputPassword').attr('type','text')
+      }
+      }  
+    })
+      $('.passwordEye').click(function(){
+      if($('.inputPassword1').hasClass('is-filled')){
+      if($('.passwordEye').hasClass('iconEye_no1')){
+        //如果有iconEye_no 就删除 把 密码框type值改成password
+             $('.passwordEye').removeClass('iconEye_no1')
+            $('.inputPassword1').attr('type','password')
+      }else {
+        //否则就添加iconEye_no 把password改成text 就能看到密码
+            $('.passwordEye').addClass('iconEye_no1')
+          $('.inputPassword1').attr('type','text')
+      }
+      }  
+    })
+</script>

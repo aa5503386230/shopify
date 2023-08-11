@@ -1,0 +1,82 @@
+<style>
+  @media only screen and (max-width:750px) {
+     .vertical-breather {
+      padding-top: 50px;
+    padding-bottom: 50px;
+     }
+     .vertical-breather #insta-feed {
+        margin: auto;
+     }
+ .vertical-breather #insta-feed h2 {
+  font-size: 24px;
+    font-weight: 400;
+    color: #151515;
+    line-height: 1.2;
+    font-family: Kapra;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+ }
+  }
+  @media only screen and (min-width:750px) {
+     .vertical-breather {
+      padding-top: 70px;
+    padding-bottom: 70px;
+     }
+     #insta-feed {
+       margin-top: 0 !important;
+       padding: 0 !important;
+     }
+    .vertical-breather #insta-feed h2 {
+      font-size: 48px;
+    font-weight: 400;
+    color: #151515;
+    line-height: 1.2;
+    text-align: center;
+    font-family: 'Kapra';
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    }
+    #insta-feed .slider-arrow, .instafeed-shopify .slider-arrow {
+      height: 50px ;
+    width: 50px ;
+    line-height: 50px;
+    }
+
+  }
+</style>
+<div class="instaConter {% if section.settings.include_horizontal_margins %}container{% endif %} {% if section.settings.include_vertical_margins %}vertical-breather{% endif %}">
+  {%- for block in section.blocks -%}
+    {%- render block -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Apps",
+  "class": "shopify-section--apps",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "include_horizontal_margins",
+      "label": "Include horizontal margins",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "include_vertical_margins",
+      "label": "Include vertical margins",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "@app"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Apps"
+    }
+  ]
+}
+{% endschema %}

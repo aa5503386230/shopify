@@ -1,0 +1,363 @@
+<style>
+@media only screen and (max-width:750px) {
+    .policyTag_conter {
+        overflow: hidden;
+    }
+ .policyTag_box {
+    margin-top: 30px;
+ }
+ .tagList_m {
+   border: 1px solid #151515;
+    margin-right: 15px;
+    text-align: center;
+ }
+  .tagList_m a {
+ display: inline-block;
+    padding: 10px 5px;
+    color: #0E0E0E;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    width: 100%;
+  }
+  .tagList1 {
+    background: #151515;
+  }
+  .tagList1 a {
+    color: #fff !important;
+  }
+
+  .policyConter {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  .policyTag_title {
+    text-align: left;
+  }
+  .policyConter_title {
+ text-align: left;
+  }
+  .policyList {
+    border-top: 1px solid #151515;
+    cursor: pointer;
+  }
+  .policy_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #151515;
+  }
+  .policy_title p {
+    margin-bottom: 0;
+    width: 90%;
+  }
+  .policy_box {
+    display: none;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #151515;
+    font-weight: 300;
+    padding-bottom: 20px;
+  }
+    .policy_icon {
+         width: 20px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5C5C5C;
+      }
+    .policy_iconActive  .policy_title .policy_icon::before {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+ .policy_iconActive  .policy_title .policy_icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .policyConter_box {
+    margin-top: 40px;
+    border-bottom: 1px solid #151515;
+  }
+  .policy_title .animated-plus:before {
+    width: 15px;
+  }
+  .policy_title .animated-plus:after {
+    height: 15px;
+  }
+  .viewAll_hover {
+    border: 1px solid #151515;
+    width: 150px;
+    padding: 10px;
+    margin: 40px auto;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #151515;
+    font-weight: 300;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+}
+@media only screen and (min-width:750px) {
+ .policyTag_box {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 30px;
+ }
+ .tagList {
+   border: 1px solid #151515;
+    margin-right: 15px;
+    width: 220px;
+    text-align: center;
+ }
+  .tagList a {
+ display: inline-block;
+    padding: 10px;
+    color: #0E0E0E;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    width: 100%;
+  }
+  .tagList1 {
+    background: #151515;
+  }
+  .tagList1 a {
+    color: #fff !important;
+  }
+  .tagList:hover {
+ background: #151515;
+  }
+  .tagList:hover a {
+    color: #fff !important;
+  }
+  .policyConter {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .policyTag_title {
+    text-align: left;
+  }
+  .policyConter_title {
+ text-align: left;
+  }
+  .policyList {
+    border-top: 1px solid #151515;
+    cursor: pointer;
+  }
+  .policy_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #151515;
+  }
+  .policy_title p {
+    margin-bottom: 0;
+  }
+  .policy_box {
+    display: none;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #151515;
+    font-weight: 300;
+    padding-bottom: 25px;
+  }
+    .policy_icon {
+         width: 20px;
+      display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #5C5C5C;
+      }
+    .policy_iconActive  .policy_title .policy_icon::before {
+      opacity: 0;
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+ .policy_iconActive  .policy_title .policy_icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .policyConter_box {
+    margin-top: 40px;
+    border-bottom: 1px solid #151515;
+  }
+  .policy_title .animated-plus:before {
+    width: 15px;
+  }
+  .policy_title .animated-plus:after {
+    height: 15px;
+  }
+  .viewAll_hover {
+    border: 1px solid #151515;
+    width: 220px;
+    padding: 10px;
+    margin: 40px auto;
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 16px;
+    color: #151515;
+    font-weight: 300;
+    line-height: 1.5;
+    cursor: pointer;
+  }
+  .viewAll_hover:hover {
+    background: #151515;
+    color: #fff !important;
+  }
+
+  .policyConter table {
+    width: 100%;
+    max-width: 900px;
+  }
+  .policyConter table tbody {
+   border: 1px solid #151515;
+  }
+  .policyConter table tbody tr {
+   border-top: 1px solid #151515;
+  }
+  .policyConter table tbody tr td {
+    border-right: 1px solid #151515;
+    padding: 10px;
+  }
+  .policyConter table tbody tr td:last-child {
+    border-right: none;
+  }
+  .policyConter table tbody tr:first-child {
+    border-top: none;
+  }
+  .policyConter h1, .policyConter h2, .policyConter h3, .policyConter h4, .policyConter h5, .policyConter h6 {
+     font-size: 26px;
+    font-weight: 600;
+    color: #151515;
+    line-height: 1.5;
+  }
+   .policyConter h1 span,
+   .policyConter h2 span,
+   .policyConter h3 span,
+   .policyConter h4 span,
+   .policyConter h5 span,
+   .policyConter h6 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #151515;
+    line-height: 1.5;
+   }
+   .policyConter {
+     font-size: 16px;
+    font-weight: 300;
+    color: #151515;
+    line-height: 1.5;
+   }
+}
+</style>
+<div class="policyTag margin-top">
+    <div class="policyTag_conter container">
+        <div class="policyTag_title ithfaen_title">{{ section.settings.title }}</div>
+        <div class="hidden-phone">
+              <div class="policyTag_box">
+            {% for block in section.blocks %}
+              <div class="tagList">
+                <a href="{{ block.settings.tagLink }}">{{ block.settings.tag }}</a>
+              </div>  
+            {% endfor %}
+        </div>
+        </div>
+        <div class="hidden-tablet-and-up">
+         <div class="policyTag_box swiper tagSwiper">
+           <div class="swiper-wrapper">
+             {% for block in section.blocks %}
+              <div class="tagList_m swiper-slide">
+                <a href="{{ block.settings.tagLink }}">{{ block.settings.tag }}</a>
+              </div>  
+            {% endfor %}
+           </div>
+        </div>
+        </div>
+    </div>
+</div>
+<div class="policyConter container">
+{{ page.content }}
+</div>
+
+<script>
+   //左侧政策标题的点击事件
+    $(document).ready(function () {
+       $('.policyConter_box').children('.policyList').filter(":lt(6)").show().end().filter(":gt(5)").hide()
+      let policyConterList = document.querySelectorAll(".tagList")
+      policyConterList.forEach(arr => {
+        if (arr.children[0].href == window.location.href) {
+          arr.classList.add("tagList1");
+          arr.children[0].classList.add("tagList1")
+  
+        }
+      })
+       let policyConterList1 = document.querySelectorAll(".tagList_m")
+      policyConterList1.forEach(arr1 => {
+        if (arr1.children[0].href == window.location.href) {
+          arr1.classList.add("tagList1");
+          arr1.children[0].classList.add("tagList1")
+  
+        }
+      })
+      });
+         var mySwiper  = new Swiper(".tagSwiper", {
+          //当屏幕宽度大于等于320
+            slidesPerView: 2.5,
+            spaceBetween: 15,
+      
+      });
+    $(".policy_title").click(function () {
+      if ($(this).parent().find(".policy_box").css("display") == "none") {
+      $(this).parent().addClass('policy_iconActive');
+      $(this).parent().siblings().removeClass('policy_iconActive');
+      $(this).parent().find(".policy_box").slideDown()
+      $(this).parent().siblings().find(".policy_box").slideUp()
+    } else {
+      $(this).parent().removeClass('policy_iconActive');
+      $(this).parent().find(".policy_box").slideUp()
+    }
+    })
+</script>
+{% schema %}
+{
+"name": "Policy Tag",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Heading"
+}
+],
+"blocks": [
+{
+"type": "tagList",
+"name": "tag list",
+"settings": [
+  {
+    "type": "text",
+    "id": "tag",
+    "label": "Tag"
+},
+  {
+    "type": "url",
+    "id": "tagLink",
+    "label": "Tag Link"
+}
+
+]
+}
+],
+"presets": [
+{
+"name": "Policy Tag"
+}
+]
+}
+{% endschema %}

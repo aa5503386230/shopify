@@ -1,0 +1,50 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-blog",
+      "disabled": true,
+      "settings": {
+        "show_blog_title": true,
+        "show_tags": true,
+        "show_category": true,
+        "show_excerpt": true,
+        "articles_per_page": 9
+      }
+    },
+    "073317fe-911e-4e96-9bf6-5f4d89c9f0db": {
+      "type": "jd-page-banner",
+      "settings": {
+        "title": "BLOG",
+        "img": "shopify:\/\/shop_images\/1-pc_3e82148e-8f3a-420a-9359-95ad6574b0aa.jpg",
+        "m_img": "shopify:\/\/shop_images\/1-app.jpg"
+      }
+    },
+    "92d07afd-2d4f-4246-a64a-f8629825eb70": {
+      "type": "jd-blog-collection",
+      "settings": {
+        "title": "Wishbone Meaning",
+        "text": "<p>From the latest to this season’s greatest,shop our thoughtfully curated collections.<\/p>",
+        "blog_collection": "news",
+        "blogCollection_bottom": 70,
+        "blogCollection_bottom1": 40
+      }
+    },
+    "880123e0-450a-47b8-a198-17a0eef48413": {
+      "type": "jd-blog-collection",
+      "disabled": true,
+      "settings": {
+        "title": "ART OF STACKING",
+        "text": "<p>Tips on how to style jewelry, whether you’re just getting started or a seasoned expert.<\/p>",
+        "blog_collection": "wishbone-meaning-1",
+        "blogCollection_bottom": 70,
+        "blogCollection_bottom1": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "073317fe-911e-4e96-9bf6-5f4d89c9f0db",
+    "92d07afd-2d4f-4246-a64a-f8629825eb70",
+    "880123e0-450a-47b8-a198-17a0eef48413"
+  ]
+}

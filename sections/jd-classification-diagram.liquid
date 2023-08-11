@@ -1,0 +1,310 @@
+<style>
+     @media screen and (max-width: 750px) {
+ .collectionBox {
+      position: relative;
+      width: 100%;
+    }
+    .collectionBox img {
+      width: 100%;
+    }
+    .collectionTitle {
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+    }
+    .collectionTitle h1 {
+    font-size: 40px;
+    font-family:'Kapra';
+    font-weight: 400;
+    letter-spacing: 5px;
+    line-height: 1.3;
+    color: #fff;
+      text-transform: uppercase;
+    }
+    .collectionSort_swiper {
+      overflow: hidden;
+      position: relative;
+    }
+    .collectionSort_swiper .swiper-pagination {
+       display: flex;
+        justify-content: flex-end;
+        padding-right: 15px;
+        bottom: 40px;
+        z-index: 2;
+    }
+     .collectionSort_swiper .swiper-pagination-bullet {
+         width: 10px;
+        height: 10px;
+        background: #fff;
+        opacity: unset;
+    }
+    .collectionSort_swiper .swiper-pagination-bullet-active {
+      background: none;
+    border: 1px solid #fff;
+    }
+   .collectionSort_list a img {
+      width: 100%;
+      height: 100%;
+    }
+    .collectionSort_list a {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    .collectionSort_conter {
+      position: absolute;
+      bottom: 30px;
+    left: 20px;
+    }
+    .collectionSort_botton .interactionEffect1 {
+      padding: 7px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    text-align: center;
+    letter-spacing: 2px;
+    width: 150px
+    }
+    .collectionSort_title {
+      font-size: 36px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.5;
+    font-family: "Kapra";
+    letter-spacing: 3px;
+    }
+     }
+      @media screen and (min-width: 750px) {     
+    .collectionSort {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 20px;
+    }
+    .collectionSort_list {
+        overflow: hidden;
+        width: 100%;
+    }
+     {% assign list = section.blocks %}
+      {% if request.path == '/collections/all' %}
+        {% if list.size > 0 %}
+          .collectionSort-box {
+            margin-top: 50px;
+           }
+        {% endif %}      
+        {% endif %}
+    {%- for block in section.blocks -%}
+     
+        #block-{{ section.id }}-{{ block.id }} {
+           {% if block.settings.proportion == true %}
+             grid-row: span 2 / auto;
+           {% elsif block.settings.proportion1 == true %}
+             grid-row: span 3 / auto;
+           {% endif %}
+        }
+    {% endfor %}
+    .collectionSort_list a img {
+      width: 100%;
+      height: 100%;
+    }
+    .collectionSort_list a {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    .collectionSort_conter {
+      position: absolute;
+      bottom: 30px;
+    left: 20px;
+    }
+     .collectionSort_botton {
+      margin-top: 10px;
+     }
+    .collectionSort_botton .interactionEffect1 {
+        padding: 5px 13px;
+       font-size: 14px;
+    font-weight: 300;
+    line-height: 1.5;
+    }
+    .collectionSort_title {
+      font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 1.5;
+    font-family: "Kapra";
+    letter-spacing: 3px;
+    }
+    .collectionBox {
+      position: relative;
+      width: 100%;
+    }
+    .collectionBox img {
+      width: 100%;
+    }
+    .collectionTitle {
+      position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    
+    }
+    .collectionTitle h1 {
+    font-size: 48px;
+    font-family:'Kapra';
+    font-weight: 400;
+    letter-spacing: 5px;
+    line-height: 1.3;
+    color: #fff;
+      text-transform: uppercase;
+    }
+  }
+</style>
+<div class="collectionSort-box">
+  {% if request.path == '/collections/all' %}
+     {% assign list = section.blocks %}
+        {% if list.size > 0 %}
+        <div class="hidden-phone">
+          <div class="collectionSort container">
+              {%- for block in section.blocks -%}
+              <div class="collectionSort_list" id="block-{{ section.id }}-{{ block.id }}" >
+                <a class="hovera" href="{% if block.settings.collectionSort_link != blank %} {{ block.settings.collectionSort_link }} {% else %} javascript:; {% endif %}">     
+                <img class="lazyload" src="{{ block.settings.collectionSort_img | img_url: '520x' }}" alt="section.settings.collectionSort_img">
+                <div class="collectionSort_conter">
+                  {% if block.settings.collectionSort_title != blank %}
+                      <div class="collectionSort_title">{{ block.settings.collectionSort_title }}</div>
+                  {% endif %}
+                  
+                  {% if block.settings.collectionSort_botton != blank %}
+                  <div class="collectionSort_botton">
+                    <span class="interactionEffect1 btn-16">{{ block.settings.collectionSort_botton }}</span>
+                  </div>
+                  {% endif %}
+                  
+                </div>
+                </a>
+                
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="hidden-tablet-and-up">
+          <div class="collectionSort swiper collectionSort_swiper">
+             <div class="swiper-wrapper">
+               {%- for block in section.blocks -%}
+              <div class="collectionSort_list swiper-slide" id="block-{{ section.id }}-{{ block.id }}" >
+                <a class="hovera" href="{% if block.settings.collectionSort_link != blank %} {{ block.settings.collectionSort_link }} {% else %} javascript:; {% endif %}">     
+                <img class="lazyload" src="{{ block.settings.collectionSort_img1 | img_url: '750x' }}"  alt="block.settings.collectionSort_img1">
+                <div class="collectionSort_conter">
+                  {% if block.settings.collectionSort_title != blank %}
+                      <div class="collectionSort_title">{{ block.settings.collectionSort_title }}</div>
+                  {% endif %}
+                  
+                  {% if block.settings.collectionSort_botton != blank %}
+                  <div class="collectionSort_botton">
+                    <span class="interactionEffect1 btn-16">{{ block.settings.collectionSort_botton }}</span>
+                  </div>
+                  {% endif %}
+                  
+                </div>
+                </a>
+                
+              </div>
+            {% endfor %}
+             </div>
+             <div class="swiper-pagination"></div>
+          </div>
+        </div>
+        {% else %}
+        <div class="collectionBox">
+          <img class="lazyload hidden-phone" src="{{ section.settings.img | img_url: '1920x' }}" alt="{{section.settings.img.alt}}">
+          <img class="lazyload hidden-tablet-and-up" src="{{ section.settings.m_img | img_url: '750x' }}"  alt="{{section.settings.m_img.alt}}">
+          <div class="collectionTitle container"><h1>{{ collection.title }}</h1></div>
+      </div>
+      {% endif %}
+  {% else %}
+    <div class="collectionBox">
+      <img class="lazyload hidden-phone" src="{{ section.settings.img | img_url: '1920x' }}" alt="{{section.settings.img.alt}}">
+      <img class="lazyload hidden-tablet-and-up" src="{{ section.settings.m_img | img_url: '750x' }}"  alt="{{section.settings.m_img.alt}}">
+      <div class="collectionTitle container"><h1>{{ collection.title }}</h1></div>
+   </div>
+  {% endif %}
+
+</div>
+  <script>
+    $(document).ready(function(){
+    var swiper = new Swiper(".collectionSort_swiper", {
+        pagination: {
+          el: ".collectionSort_swiper .swiper-pagination",
+        },
+      });
+    })
+      
+    </script>
+{% schema %}
+{
+"name": "Classification Diagram",
+"settings": [
+{
+"type": "image_picker",
+"id": "img",
+"label": "collection banner Image"
+},
+{
+"type": "image_picker",
+"id": "m_img",
+"label": "collection banner Image M"
+}
+],
+"blocks" : [
+ {
+    "type": "collectionSort",
+    "name": "collection_sort",
+    "settings":[
+     {
+      "type": "checkbox",
+      "id": "proportion",
+      "label": "Select the module to account for two",
+      "default": false
+    },
+      {
+      "type": "checkbox",
+      "id": "proportion1",
+      "label": "Select the module to account for three",
+      "default": false
+    },
+    {
+    "type": "text",
+    "id": "collectionSort_title",
+    "label": "title"
+    },
+    {
+    "type": "image_picker",
+    "id": "collectionSort_img",
+    "label": "Image"
+    },
+    {
+    "type": "image_picker",
+    "id": "collectionSort_img1",
+    "label": "Mobile Image"
+    },
+    {
+    "type": "url",
+    "id": "collectionSort_link",
+    "label": "link"
+    },
+    {
+    "type": "text",
+    "id": "collectionSort_botton",
+    "label": "botton text"
+    }
+    ]
+  }
+],
+"presets": [{
+"name": "Classification Diagram"
+}]
+}
+{% endschema %}

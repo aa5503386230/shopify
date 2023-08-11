@@ -1,0 +1,94 @@
+<style>
+ @media screen and (max-width: 750px) {
+
+  }
+  @media screen and (min-width: 750px) {
+   .commentSwiper {
+    overflow: hidden;
+}
+.comment_box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.commentImg {
+    width: 80px;
+}
+.comment_text {
+    font-size: 28px;
+    font-weight: 300;
+    color: #151515;
+    line-height: 1.5;
+    margin: 0 50px;
+}
+.comment_signature {
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    margin-top: 75px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #151515;
+}
+  }
+
+</style>
+<div class="commentConter margin-top">
+    <div class="commentBox container">
+        <div class="">
+          <!-- Swiper -->
+        <div class="swiper commentSwiper">
+        <div class="swiper-wrapper comment-wrapper">
+            {%- for block in section.blocks -%}
+             <div class="swiper-slide comment-slide">
+                 <div class="comment_box">
+                    <img class="commentImg" src="https://cdn.shopify.com/s/files/1/0715/6115/0740/files/5.png?v=1676266450" alt="">
+                     <div class="comment_text">{{ block.settings.comment }}</div>
+                     <img class="commentImg" src="https://cdn.shopify.com/s/files/1/0715/6115/0740/files/5_0a1b8028-12f1-4f58-9f84-dd93fb2ed245.png?v=1676266450" alt="">
+                 </div>
+                   <span class="comment_signature">{{ block.settings.signature }}</span>
+             </div>
+         {% endfor %}
+        </div>
+        </div>
+        </div> 
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+         var swiper = new Swiper(".commentSwiper", {
+            spaceBetween: 20,
+            autoplay:true,
+           loop: true,
+         });
+    })
+</script>
+{% schema %}
+{
+"name": "Comment",
+"settings": [],
+"blocks" : [
+{
+"type": "commentList",
+"name": "comment_list",
+"settings":[
+{
+"type": "richtext",
+"id": "comment",
+"label": "text"
+},
+{
+"type": "text",
+"id": "signature",
+"label": "signature"
+}
+]
+}
+],
+"presets": [{
+"name": "Comment"
+}]
+}
+{% endschema %}

@@ -1,0 +1,221 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "fc24ee71-6db7-4495-9a67-21a66b05dcdd": {
+      "type": "jd-banner",
+      "settings": {
+        "header": "<p>OUR HOTOOFASHION<\/p>",
+        "font_size": 48,
+        "m_font_size": 24,
+        "text": "<p>REDEFINE LUXRY, YOUR WAY<\/p>",
+        "desc_font_size": 100,
+        "desc_m_font_size": 43,
+        "img_banner": "shopify:\/\/shop_images\/1-pc_b9d14d22-8891-4a7e-aa5a-ce4593fbb64a.jpg",
+        "img_bannerMobile": "shopify:\/\/shop_images\/1-app_f85990bc-acaa-4b21-a6aa-467fb49183e4.jpg"
+      }
+    },
+    "2dad790b-63dd-4ecc-8a53-5a74f1abaa66": {
+      "type": "our-philosophy",
+      "settings": {
+        "header": "<p>OUR BRAND STORY<\/p>",
+        "title_one": "<p>BECAUSE OF SIMILAR IDEAS.<br\/><\/p>",
+        "title_two": "<p>WE HOPE WE CAN INSISTING DREAMING & TRYING!<\/p>",
+        "title_font_size": 20,
+        "title_m_font_size": 12,
+        "description": "<p>Hotoo Fashion is chosen as our brand because it is simple, easy to speak and a little cool. It is very similar to our team and can represent our products as well. Our brand now is so young that we don't have a wonderful story to tell yet. We just make Hotoo Fashion have some of its own appearance through our efforts over the years.<\/p>",
+        "m_description": "<p>We believe in jewelry as an expression of self, and how you show up<br\/>in the world should have no limits.<br\/>That's why we work with master jewelers to create pieces that feel like you - to mear<br\/>what you want, wear how you want, and keep forever. Our jewelry is made to live in.<br\/>designed in-house with craftsmanship and responsible<br\/>sourcing at the cornerstone of it all.<\/p>",
+        "text_font_size": 16,
+        "text_m_font_size": 12,
+        "background": "#faf6ef",
+        "img_1": "shopify:\/\/shop_images\/335-412.png",
+        "img_2": "shopify:\/\/shop_images\/2-pc.jpg"
+      }
+    },
+    "d7212fa4-9901-4814-a215-c84ade1c0e2d": {
+      "type": "commitments",
+      "disabled": true,
+      "blocks": {
+        "b4b20968-953c-4725-88a0-9b8d4b2c87d1": {
+          "type": "img",
+          "settings": {
+            "title": "Craftsmanship",
+            "description": "<p>Our jewelry is made using high-quality materials such as 925 sterling silver, brass,18k gold vermeil, freshwater pearls and natural gemstones. Each piece is meticulously designed with attention to detail and is carefully plated to ensure longevity and durability. The brand's commitment to excellent craftsmanship is evident in every piece, making them timeless and meaningful works of art.<br\/><\/p>",
+            "m_description": "<p>Our jewelry is made using high-quality materials such as 925 sterling silver, brass,18k gold vermeil, freshwater pearls and natural gemstones. Each piece is meticulously designed with attention to detail and is carefully plated to ensure longevity and durability. The brand's commitment to excellent craftsmanship is evident in every piece, making them timeless and meaningful works of art.<\/p>",
+            "img": "shopify:\/\/shop_images\/3-pc.jpg"
+          }
+        },
+        "2a40d130-2909-4092-8774-7ab53f37e785": {
+          "type": "img",
+          "settings": {
+            "title": "Styles",
+            "description": "<p>HOTOOFASHION offers a variety of styles to cater to different tastes, from classic and timeless designs to bold and contemporary pieces. Each piece is carefully crafted to be versatile and adaptable, suitable for various occasions from casual everyday wear to formal events. Whether you are looking for a statement piece to elevate your outfit or a subtle accent to complement your style, HOTOOFASHION has something for every occasion.<br\/><\/p>",
+            "m_description": "<p>HOTOOFASHION offers a variety of styles to cater to different tastes, from classic and timeless designs to bold and contemporary pieces. Each piece is carefully crafted to be versatile and adaptable, suitable for various occasions from casual everyday wear to formal events. Whether you are looking for a statement piece to elevate your outfit or a subtle accent to complement your style, HOTOOFASHION has something for every occasion.<br\/><\/p>",
+            "img": "shopify:\/\/shop_images\/4-pc.jpg"
+          }
+        },
+        "84898388-279a-43b3-b2f9-8742231e49e5": {
+          "type": "img",
+          "settings": {
+            "title": "Design",
+            "description": "<p>The design of HOTOOFASHION is characterized by its intricate details and timeless elegance. Each piece is carefully crafted with a balance of traditional and modern elements, resulting in a unique and sophisticated aesthetic. The use of high-quality materials such as 925 sterling silver and freshwater pearls further accentuates the beauty of the design, making each piece a wearable work of art.<br\/><\/p>",
+            "m_description": "<p>The design of HOTOOFASHION is characterized by its intricate details and timeless elegance. Each piece is carefully crafted with a balance of traditional and modern elements, resulting in a unique and sophisticated aesthetic. The use of high-quality materials such as 925 sterling silver and freshwater pearls further accentuates the beauty of the design, making each piece a wearable work of art.<br\/><\/p>",
+            "img": "shopify:\/\/shop_images\/527-344.png"
+          }
+        }
+      },
+      "block_order": [
+        "b4b20968-953c-4725-88a0-9b8d4b2c87d1",
+        "2a40d130-2909-4092-8774-7ab53f37e785",
+        "84898388-279a-43b3-b2f9-8742231e49e5"
+      ],
+      "settings": {
+        "header": "<p>COMMITMENTS<\/p>",
+        "title_font_size": 20,
+        "title_m_font_size": 16,
+        "description_font_size": 16,
+        "description_m_font_size": 12,
+        "background": ""
+      }
+    },
+    "61c645a6-f1c4-4f81-8056-1aa542edcea4": {
+      "type": "about_text_img",
+      "settings": {
+        "header": "<p>Sticking to the original            intention is the best     interpretation of the product<\/p>",
+        "m_header": "<p>Sticking to the original            intention is the best     interpretation of the product<\/p>",
+        "font_size": 48,
+        "m_font_size": 24,
+        "description": "<p>At the heart of our products are dreams and hopes. When you wear it, it brings you not only beauty, but also a feeling of connection between the universe and human beings. It reminds you that no matter where you are, no matter how difficult the road ahead, you can follow your dreams and shine like a star.<\/p>",
+        "m_description": "<p>At the heart of our products are dreams and hopes. When you wear it, it brings you not only beauty, but also a feeling of connection between the universe and human beings. It reminds you that no matter where you are, no matter how difficult the road ahead, you can follow your dreams and shine like a star.<\/p>",
+        "text_font_size": 16,
+        "text_m_font_size": 12,
+        "background": "#faf6ef",
+        "img": "shopify:\/\/shop_images\/1599-701.png",
+        "m_img": "shopify:\/\/shop_images\/690-949.png"
+      }
+    },
+    "bfccbfe7-0e9e-432c-844a-a1ec0594c645": {
+      "type": "ourstory-swiper",
+      "blocks": {
+        "e18a225c-64c0-4756-a91d-7f9e1a293a37": {
+          "type": "ourstory",
+          "settings": {
+            "title": "<ul><li> Dares to dream. Dares try.<\/li><\/ul>"
+          }
+        },
+        "505b927f-372f-4e5d-bbef-d36aa0cf45c6": {
+          "type": "ourstory",
+          "settings": {
+            "title": "<ul><li> Dares to dream. Dares try.<\/li><\/ul>"
+          }
+        },
+        "89a8661a-69ec-49d4-b16a-bf9156c2f4e0": {
+          "type": "ourstory",
+          "settings": {
+            "title": "<ul><li> Dares to dream. Dares try.<\/li><\/ul>"
+          }
+        },
+        "bfdc42d7-c02c-4b1c-b6c9-9ae243964343": {
+          "type": "ourstory",
+          "settings": {
+            "title": "<ul><li> Dares to dream. Dares try.<\/li><\/ul>"
+          }
+        }
+      },
+      "block_order": [
+        "e18a225c-64c0-4756-a91d-7f9e1a293a37",
+        "505b927f-372f-4e5d-bbef-d36aa0cf45c6",
+        "89a8661a-69ec-49d4-b16a-bf9156c2f4e0",
+        "bfdc42d7-c02c-4b1c-b6c9-9ae243964343"
+      ],
+      "settings": {
+        "background": "#ffffff",
+        "font_size": 26,
+        "m_font_size": 12
+      }
+    },
+    "bd001fcd-8819-4552-8dd1-0815ec3d6067": {
+      "type": "continue-shopping",
+      "blocks": {
+        "df611395-f895-4ead-8b87-183e45c39ef2": {
+          "type": "img",
+          "settings": {
+            "title": "Best Sellers",
+            "img": "shopify:\/\/shop_images\/5-pc.jpg",
+            "m_img": "shopify:\/\/shop_images\/5-app.jpg"
+          }
+        },
+        "54d1e3a5-8679-4ea7-8f5d-750583c99097": {
+          "type": "img",
+          "settings": {
+            "title": "Necklaces + Pendants",
+            "img": "shopify:\/\/shop_images\/6-pc.jpg",
+            "m_img": "shopify:\/\/shop_images\/6-app.jpg"
+          }
+        },
+        "f976093a-b3c5-4b81-9935-f3f23fa3b6cb": {
+          "type": "img",
+          "settings": {
+            "title": "Earrings",
+            "img": "shopify:\/\/shop_images\/7-pc.jpg",
+            "m_img": "shopify:\/\/shop_images\/7-app.jpg"
+          }
+        },
+        "9fe9aafa-9997-4e59-9de8-7b545c1c39c7": {
+          "type": "img",
+          "settings": {
+            "title": "Rings",
+            "img": "shopify:\/\/shop_images\/8-pc.jpg",
+            "m_img": "shopify:\/\/shop_images\/8-app.jpg"
+          }
+        },
+        "84b645f0-447e-4174-b1e6-69c06f46a25c": {
+          "type": "img",
+          "settings": {
+            "title": "Bracelets",
+            "img": "shopify:\/\/shop_images\/9-pc.jpg",
+            "m_img": "shopify:\/\/shop_images\/9-app.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "df611395-f895-4ead-8b87-183e45c39ef2",
+        "54d1e3a5-8679-4ea7-8f5d-750583c99097",
+        "f976093a-b3c5-4b81-9935-f3f23fa3b6cb",
+        "9fe9aafa-9997-4e59-9de8-7b545c1c39c7",
+        "84b645f0-447e-4174-b1e6-69c06f46a25c"
+      ],
+      "settings": {
+        "header": "<p>CONTINUE SHOPPING<\/p>",
+        "btn_title": "Shop Last Minute Gifts",
+        "btn_link": "shopify:\/\/collections",
+        "title_font_size": 18,
+        "title_m_font_size": 14,
+        "background": "#faf6ef"
+      }
+    },
+    "27746342-b52f-4f6a-838a-af35cd268cc8": {
+      "type": "jd-celebrity-description",
+      "settings": {
+        "description": "<p>I am Sara, the designer of HotooFashion. The jewelry pieces I aim to create go beyond being mere ornaments. I believe that each gemstone possesses its unique energy and story. I don't want to assign a specific meaning to each piece, as their true significance emerges only when they encounter the right person and unleash their energy. I hope that when people wear the jewelry I design, they can shine even brighter. My goal is to help empower more women to be confident, self-loving, and courageous in pursuing their dreams and realizing their true selves.<\/p>",
+        "img": "shopify:\/\/shop_images\/380.png"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "fc24ee71-6db7-4495-9a67-21a66b05dcdd",
+    "2dad790b-63dd-4ecc-8a53-5a74f1abaa66",
+    "d7212fa4-9901-4814-a215-c84ade1c0e2d",
+    "61c645a6-f1c4-4f81-8056-1aa542edcea4",
+    "bfccbfe7-0e9e-432c-844a-a1ec0594c645",
+    "bd001fcd-8819-4552-8dd1-0815ec3d6067",
+    "27746342-b52f-4f6a-838a-af35cd268cc8"
+  ]
+}

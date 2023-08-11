@@ -1,0 +1,213 @@
+<style>
+    .indexIs_banner h1 {
+        margin-top: 0;
+    }
+    @media (max-width:750px) {
+   
+        .indexIs_banner{
+            width: 100%;
+        }
+        .indexIs_banner_position{
+            position: relative;
+        }
+        .indexIs_banner_position .banner_text{
+            color: #fff;
+            font-size: 16px;
+        }
+        .indexIs_banner_position img{
+            width: 100%;
+        }
+        .indexIs_banner_positionBox {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #251A1A1a;
+        }
+        .indexIs_banner_positionBox_box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .indexIs_banner_positionBox_head{
+            color: #fff;
+            line-height: 1;
+            text-align: center;
+            width: 92%;
+            margin: 0 auto;
+            margin-bottom: 0 !important;
+            padding: 0 10px;
+            font-weight: 400;
+            letter-spacing: 2.5px;
+            font-size: {{section.settings.m_font_size}}px;
+            font-family: "Kapra";
+        }
+        .indexIs_banner_positionBox_text{
+            margin-top: 20px;
+            font-family: 'Kapra';
+            letter-spacing: 3px;
+            line-height: 1;
+            text-align: center;
+            width: 90%;
+            color: #fff;
+            font-size: {{section.settings.desc_m_font_size}}px;
+        }
+    }
+    @media(min-width:750px) {
+        .indexIs_banner{
+            width: 100%;
+        }
+        .indexIs_banner_position .banner_text{
+            font-size: 28px;
+            color: #fff;
+        }
+        .indexIs_banner_position{
+            position: relative;
+        }
+        .indexIs_banner_position img, .indexIs_banner_position video{
+            width: 100%;
+        }
+        .indexIs_banner_positionBox {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #251A1A1a;
+        }
+        
+        .indexIs_banner_positionBox_box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .indexIs_banner_positionBox_head{
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 0 !important;
+            text-align: center;
+            font-weight: 400;
+             font-family: 'Kapra';
+            font-size: {{section.settings.font_size}}px;
+             letter-spacing: 5px;
+        }
+        .indexIs_banner_positionBox_text{
+            margin-top: 30px;
+            font-weight: 400;
+            text-align: center;
+            color: #fff;
+            font-size: {{section.settings.desc_font_size}}px;
+            font-family: 'Kapra';
+            letter-spacing: 5px;
+        }
+        .indexIs_banner_positionBox_text p{
+            line-height: 1.2;
+        }
+    }
+
+</style>
+    
+    <div class="indexIs_banner">
+      <div class="indexIs_banner-box">
+        <div class="indexIs_banner_position">
+            <img loading="lazy" class="hidden-phone" {% render 'image-attributes' , image: section.settings.img_banner%}>
+            <img loading="lazy" class="hidden-tablet-and-up" {% render 'image-attributes' , image: section.settings.img_bannerMobile%}>
+              <div class="indexIs_banner_positionBox">
+                  <div class="indexIs_banner_positionBox_box">
+                    <h1 class="indexIs_banner_positionBox_head">
+                        {{section.settings.header }}
+                    </h1>
+                    {% if section.settings.text !=blank %}
+                        <div class="indexIs_banner_positionBox_text">
+                            {{section.settings.text }}
+                        </div>
+                    {% endif %}
+                  </div>
+              </div>
+          </div>
+  
+      </div>
+    </div>
+
+    {% schema %}
+    {
+    "name": "Banner",
+    "class": "shopify-section--banner_",
+    "settings": [
+        {
+            "type": "richtext",
+            "id": "header",
+            "label": "Header"
+        },
+        {
+          "type": "range",
+          "id": "font_size",
+          "min": 30,
+          "max": 100,
+          "unit": "px",
+          "step": 1,
+          "label": "pc font size",
+          "default": 48
+        },
+        {
+          "type": "range",
+          "id": "m_font_size",
+          "min": 20,
+          "max": 100,
+          "unit": "px",
+          "step": 1,
+          "label": "mobile font size",
+          "default": 20
+        },
+        {
+            "type": "richtext",
+            "id": "text",
+            "label": "text"
+        },
+        {
+            "type": "range",
+            "id": "desc_font_size",
+            "min": 30,
+            "max": 200,
+            "unit": "px",
+            "step": 2,
+            "label": "pc font size",
+            "default": 48
+          },
+          {
+            "type": "range",
+            "id": "desc_m_font_size",
+            "min": 20,
+            "max": 100,
+            "unit": "px",
+            "step": 1,
+            "label": "mobile font size",
+            "default": 20
+          },
+        {
+            "type": "image_picker",
+            "id": "img_banner",
+            "label": "banner Img"
+        },
+        {
+            "type": "image_picker",
+            "id": "img_bannerMobile",
+            "label": "banner Img Mobile"
+        }
+      
+    ],
+    "blocks": [
+      
+    ],
+    "presets": [
+    {
+    "name": "Banner"
+    }
+    ]
+    }
+    {% endschema %}

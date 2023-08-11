@@ -1,0 +1,196 @@
+<style>
+    @media (max-width:999px){
+        .contact_text_1_all {
+            padding-bottom: 30px;
+        }
+        .contact_text_1_all .title_contact{
+            text-align: center;
+        }
+        .contact_text_1_all .title_contact{
+            padding: 50px 20px 26px;
+            font-weight: 300;
+            background: {{section.settings.background}};
+            color:{{section.settings.color}}
+        }
+        .contact_text_1_all .date_contact_all{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            grid-gap: 10px;
+        }
+       
+        .contact_text_1_all .title{
+            line-height: 1;
+            border-bottom: 1px solid #151515;
+            padding-bottom: 16px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            font-size: {{section.settings.m_font_size}}px;
+        }
+        .contact_text_1_all .contact{
+            line-height: 1;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: {{section.settings.con_m_font_size}}px;
+        }
+        .contact_text_1_all .date{
+            line-height: 1.5;
+            font-size: {{section.settings.date_m_font_size}}px;
+        }
+    }
+    @media(min-width:1000px){
+        .contact_text_1_all{
+            margin-bottom: 100px;
+            text-align: center;
+        }
+        .contact_text_1_all .date_contact_all{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-gap: 10px;
+        }
+        .contact_text_1_all .title_contact{
+            padding: 50px 20px 26px;
+            font-weight: 300;
+            background: {{section.settings.background}};
+            color:{{section.settings.color}}
+        }
+        .contact_text_1_all .title{
+            line-height: 1;
+            border-bottom: 1px solid #151515;
+            padding-bottom: 29px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: {{section.settings.font_size}}px;
+        }
+        .contact_text_1_all .contact{
+            line-height: 1;
+            margin-bottom: 10px;
+            font-size: {{section.settings.con_font_size}}px;
+        }
+        .contact_text_1_all .date{
+            line-height: 1.5;
+            font-size: {{section.settings.date_font_size}}px;
+        }
+    }
+</style>
+<div class="container">
+    <div class="contact_text_1_all">
+        {%- if section.blocks.size > 0 -%}
+            <div class="date_contact_all">
+                {% for block in section.blocks %}
+                    <div class="title_contact">
+                        <div class="title">{{block.settings.title}}</div>
+                        <div class="contact">{{block.settings.contact}}</div>
+                        <div class="date">{{block.settings.date}}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% schema %}
+    {
+        "name": "contact text 1",
+        "class": "contact_text_1",
+        "settings": [
+            {
+                "type": "range",
+                "id": "font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "pc font size",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "m_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "mobile font size",
+                "default": 12
+            },
+            {
+                "type": "range",
+                "id": "con_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "answer pc font size",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "con_m_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "answer mobile font size",
+                "default": 12
+            },
+            {
+                "type": "range",
+                "id": "date_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "date pc font size",
+                "default": 14
+            },
+            {
+                "type": "range",
+                "id": "date_m_font_size",
+                "min": 12,
+                "max": 100,
+                "unit": "px",
+                "step": 1,
+                "label": "date mobile font size",
+                "default": 12
+            },
+            {
+                "type": "color",
+                "id": "background",
+                "label": "background"
+            },
+            {
+                "type": "color",
+                "id": "color",
+                "label": "color"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "question",
+                "name": "question",
+                "limit": 4,
+                "settings": [
+                    {
+                        "type": "text",
+                        "id": "title",
+                        "label": "title"
+                    },
+                    {
+                        "type": "text",
+                        "id": "contact",
+                        "label": "title"
+                    },
+                    {
+                        "type":"richtext",
+                        "id": "date",
+                        "label": "title"
+                    }
+                ]
+            }
+        ],
+        "presets": [
+            {
+                "name": "contact text1"
+            }
+        ]
+    }
+{% endschema %}

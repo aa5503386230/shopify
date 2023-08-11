@@ -1,0 +1,122 @@
+<style>
+    @media only screen and (max-width:750px) {
+
+    }
+@media only screen and (min-width:750px) {
+    .industryIcon_box {
+        max-width: 1010px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .industryIcon_conter {
+        margin-top: 50px;
+    }
+    .industryIcon_tetx {
+      font-size: 28px;
+        font-weight: 300;
+        color: #151515;
+        line-height: 1.5;
+        text-align: center;
+    }
+ .industryIcon_swiper {
+    overflow: hidden;
+ }
+ .industryIcon_swiper .swiper-wrapper {
+ transition-timing-function: linear !important;
+ }
+}
+</style>
+<div class="industryIcon margin-top">
+   <div class="container industryIcon_conter1">
+      <div class="industryIcon_box">
+        {% if section.settings.title != blank %}
+             <div class="industryIcon_title ithfaen_title">{{ section.settings.title }}</div>
+        {% endif %}
+        {% if section.settings.text !=blank %}
+             <div class="industryIcon_tetx">{{ section.settings.text }}</div>
+        {% endif %}
+        <div class="industryIcon_conter">
+        <!-- Swiper -->
+        <div class="swiper industryIcon_swiper">
+        <div class="swiper-wrapper industryIcon_wrapper">
+           {% for block in section.blocks %}
+            <div class="swiper-slide industryIcon_slide">
+                 <img class="img" src="{{ block.settings.image | img_url:'300x300'}}" alt="{{ block.settings.image}}">
+            </div>
+            {% endfor %}
+        </div>
+        </div>
+        </div>
+    </div> 
+   </div>
+</div>
+<script>
+    $(document).ready(function(){
+    var swiper = new Swiper(".industryIcon_swiper", {
+        observer: true,
+        observeParents: true,
+        speed: 6000,
+       loop: true,
+        autoplay: {
+            delay: 0,
+            stopOnLastSlide: false,
+            disableOnInteraction: false,
+        },
+        breakpoints: {
+            320: {
+            //当屏幕宽度大于等于320
+            slidesPerView: 3,
+            spaceBetween: 20,
+            },
+            741: {
+            //当屏幕宽度大于等于741
+            slidesPerView: 5,
+            spaceBetween: 20,
+            },
+        },
+      });
+    })
+</script>
+{% schema %}
+{
+"name": "Industry Icon",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "Heading"
+},
+{
+"type": "richtext",
+"id": "text",
+"label": "detail"
+},
+{
+"type": "color",
+"id": "background",
+"label": "background",
+"default": "rgba(0,0,0,0)"
+}
+],
+"blocks": [
+{
+"type": "industryIcon",
+"name": "industry_icon",
+"settings": [
+  {
+    "type": "image_picker",
+    "id": "image",
+    "label": "Logo Image"
+}
+
+]
+}
+],
+"presets": [
+{
+"name": "Industry Icon"
+}
+]
+}
+{% endschema %}

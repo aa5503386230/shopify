@@ -1,0 +1,76 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": true,
+        "page_width": "medium"
+      }
+    },
+    "dd126b82-fde7-4d99-bc41-8d9577c4c539": {
+      "type": "jd-page-banner",
+      "settings": {
+        "title": "",
+        "img": "shopify:\/\/shop_images\/1-pc_955d79bd-6a4f-4161-94b5-49696bd2179c.jpg",
+        "m_img": "shopify:\/\/shop_images\/1-app_6bfda4d7-0c63-4ebc-b47e-84eca91e665c.jpg"
+      }
+    },
+    "0dbabbba-3aa9-4924-9be1-c527cb1020b4": {
+      "type": "jd-policy-tag",
+      "blocks": {
+        "b5cc139b-bb66-44ce-87a8-dbb0557cb803": {
+          "type": "tagList",
+          "settings": {
+            "tag": "Order",
+            "tagLink": "shopify:\/\/pages\/order"
+          }
+        },
+        "7b1fc9af-fe74-4f1b-a08f-184e8036ade0": {
+          "type": "tagList",
+          "settings": {
+            "tag": "Shipping",
+            "tagLink": "shopify:\/\/pages\/shopping"
+          }
+        },
+        "8c1a9e0d-df74-4d4d-9ec3-cbed84196409": {
+          "type": "tagList",
+          "settings": {
+            "tag": "Returns & Refunds Policy",
+            "tagLink": "shopify:\/\/pages\/ours-service"
+          }
+        },
+        "bce2d8da-d037-4dc0-b073-e6018dcd895b": {
+          "type": "tagList",
+          "settings": {
+            "tag": "Ours Service",
+            "tagLink": "shopify:\/\/pages\/ours-service-1"
+          }
+        },
+        "c14e4167-054c-4afa-acef-e5a30714a1c1": {
+          "type": "tagList",
+          "disabled": true,
+          "settings": {
+            "tag": "Privacy Policy",
+            "tagLink": "shopify:\/\/pages\/payment"
+          }
+        }
+      },
+      "block_order": [
+        "b5cc139b-bb66-44ce-87a8-dbb0557cb803",
+        "7b1fc9af-fe74-4f1b-a08f-184e8036ade0",
+        "8c1a9e0d-df74-4d4d-9ec3-cbed84196409",
+        "bce2d8da-d037-4dc0-b073-e6018dcd895b",
+        "c14e4167-054c-4afa-acef-e5a30714a1c1"
+      ],
+      "settings": {
+        "title": "Your Q. Our A."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "dd126b82-fde7-4d99-bc41-8d9577c4c539",
+    "0dbabbba-3aa9-4924-9be1-c527cb1020b4"
+  ]
+}
