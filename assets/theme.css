@@ -9107,7 +9107,6 @@ input:checked + .popover__choice-label::after,
 .footer__copyright,
 .footer__payment-methods {
   display: block;
-  margin-top: 32px;
   color: rgba(var(--footer-text-color), 0.7);
 }
 

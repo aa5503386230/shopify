@@ -119,14 +119,12 @@
         display: inline-block;
         overflow: hidden;
     }
-
     .thumbnail-image .thumbnail_img_h {
-        /* transition: transform 1s ease; */
+      cursor: zoom-in;
     }
-    /*根据需求设置放大倍数  */
-    .thumbnail-image:hover .thumbnail_img_h {
-        /* transform: scale(2);   */
-        cursor: zoom-in;
+    .thumbnail-image .thumbnail_img_h.zoomed  {
+      transform: scale(2);
+      cursor: crosshair;
     }
   }
 </style>
@@ -461,7 +459,44 @@
         pagination: {
               el: ".swiper-pagination"
         }
+      });
+      let click_item_idx = undefined
+      const ImgMouseMoveHandleer = (event) => {  // 计算orign
+        const j_img = $(event.data._this)
+        const boundingRect = j_img.get(0).getBoundingClientRect();
+        const mouseX = event.clientX - boundingRect.left;
+        const mouseY = event.clientY - boundingRect.top;
+        if(mouseX > 0 && mouseY > 0) {
+          const originX = (mouseX / boundingRect.width) * 100;
+          const originY = (mouseY / boundingRect.height) * 100;
+          j_img.css("transform-origin", `${originX}% ${originY}%`);
+        } else {
+          j_img.css("transform-origin", `50% 50%`);
+        }
+      }
+      const resetState = (j_this) => {  // 重置状态
+        j_this.removeClass('zoomed')
+        click_item_idx = undefined
+      }
+      const product_img_list = $('.product__thumbnail-list .thumbnail_img_h')
+      product_img_list.each(function(index) {
+        $(this).on("mousemove", { _this: this }, ImgMouseMoveHandleer);
+        $(this).click(() => {
+          if(index != click_item_idx) {
+            if(click_item_idx) {  // 移除前一个dom的class，解除事件
+              resetState($(product_img_list[click_item_idx]))
+            }
+            $(this).addClass('zoomed')
+            click_item_idx = index
+            $(this).on("mouseout",() => {
+              if(click_item_idx == index) {
+                resetState($(this))
+              }
+            });
+          }else {
+            resetState($(this))
+          }
+        })
       }); 
-      
   })
 </script>
